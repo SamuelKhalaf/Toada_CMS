@@ -1,0 +1,503 @@
+/* LamaSans Font Family - @font-face declarations */
+
+/* Regular */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-Regular.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-Regular.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-Regular.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-Regular.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-RegularItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-RegularItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-RegularItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-RegularItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Light */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-Light.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-Light.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-Light.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-Light.woff') format('woff');
+    font-weight: 300;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-LightItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-LightItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-LightItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-LightItalic.woff') format('woff');
+    font-weight: 300;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Extra Light */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraLight.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraLight.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraLight.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraLight.woff') format('woff');
+    font-weight: 200;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraLightItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraLightItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraLightItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraLightItalic.woff') format('woff');
+    font-weight: 200;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Thin */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-Thin.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-Thin.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-Thin.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-Thin.woff') format('woff');
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-ThinItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-ThinItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-ThinItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-ThinItalic.woff') format('woff');
+    font-weight: 100;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Medium */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-Medium.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-Medium.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-Medium.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-MediumItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-MediumItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-MediumItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-MediumItalic.woff') format('woff');
+    font-weight: 500;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Semi Bold */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-SemiBold.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-SemiBold.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-SemiBold.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-SemiBoldItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-SemiBoldItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-SemiBoldItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-SemiBoldItalic.woff') format('woff');
+    font-weight: 600;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Bold */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-Bold.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-Bold.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-Bold.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-Bold.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-BoldItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-BoldItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-BoldItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-BoldItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* Extra Bold */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraBold.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraBold.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraBold.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraBold.woff') format('woff');
+    font-weight: 800;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraBoldItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-ExtraBoldItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraBoldItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-ExtraBoldItalic.woff') format('woff');
+    font-weight: 800;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Black */
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-Black.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-Black.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-Black.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-Black.woff') format('woff');
+    font-weight: 900;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans';
+    src: url('../Fonts/Web/Standard/LamaSans-BlackItalic.eot');
+    src: url('../Fonts/Web/Standard/LamaSans-BlackItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Standard/LamaSans-BlackItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Standard/LamaSans-BlackItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Condensed Regular */
+@font-face {
+    font-family: 'LamaSans Condensed';
+    src: url('../Fonts/Web/Condensed/LamaSans-RegularCondensed.eot');
+    src: url('../Fonts/Web/Condensed/LamaSans-RegularCondensed.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Condensed/LamaSans-RegularCondensed.woff2') format('woff2'),
+         url('../Fonts/Web/Condensed/LamaSans-RegularCondensed.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans Condensed';
+    src: url('../Fonts/Web/Condensed/LamaSans-RegularCondensedItalic.eot');
+    src: url('../Fonts/Web/Condensed/LamaSans-RegularCondensedItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Condensed/LamaSans-RegularCondensedItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Condensed/LamaSans-RegularCondensedItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Condensed Bold */
+@font-face {
+    font-family: 'LamaSans Condensed';
+    src: url('../Fonts/Web/Condensed/LamaSans-BoldCondensed.eot');
+    src: url('../Fonts/Web/Condensed/LamaSans-BoldCondensed.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Condensed/LamaSans-BoldCondensed.woff2') format('woff2'),
+         url('../Fonts/Web/Condensed/LamaSans-BoldCondensed.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans Condensed';
+    src: url('../Fonts/Web/Condensed/LamaSans-BoldCondensedItalic.eot');
+    src: url('../Fonts/Web/Condensed/LamaSans-BoldCondensedItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Condensed/LamaSans-BoldCondensedItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Condensed/LamaSans-BoldCondensedItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+
+/* Expanded Regular */
+@font-face {
+    font-family: 'LamaSans Expanded';
+    src: url('../Fonts/Web/Expanded/LamaSans-RegularExpanded.eot');
+    src: url('../Fonts/Web/Expanded/LamaSans-RegularExpanded.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Expanded/LamaSans-RegularExpanded.woff2') format('woff2'),
+         url('../Fonts/Web/Expanded/LamaSans-RegularExpanded.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans Expanded';
+    src: url('../Fonts/Web/Expanded/LamaSans-RegularExpandedItalic.eot');
+    src: url('../Fonts/Web/Expanded/LamaSans-RegularExpandedItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Expanded/LamaSans-RegularExpandedItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Expanded/LamaSans-RegularExpandedItalic.woff') format('woff');
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Expanded Bold */
+@font-face {
+    font-family: 'LamaSans Expanded';
+    src: url('../Fonts/Web/Expanded/LamaSans-BoldExpanded.eot');
+    src: url('../Fonts/Web/Expanded/LamaSans-BoldExpanded.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Expanded/LamaSans-BoldExpanded.woff2') format('woff2'),
+         url('../Fonts/Web/Expanded/LamaSans-BoldExpanded.woff') format('woff');
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'LamaSans Expanded';
+    src: url('../Fonts/Web/Expanded/LamaSans-BoldExpandedItalic.eot');
+    src: url('../Fonts/Web/Expanded/LamaSans-BoldExpandedItalic.eot?#iefix') format('embedded-opentype'),
+         url('../Fonts/Web/Expanded/LamaSans-BoldExpandedItalic.woff2') format('woff2'),
+         url('../Fonts/Web/Expanded/LamaSans-BoldExpandedItalic.woff') format('woff');
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+}
+
+/* Triangular Process Layout Styles */
+.triangular-process-layout {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.process-row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    width: 100%;
+}
+
+.process-row:first-child {
+    /* First row: Design - Image - Implement */
+    justify-content: space-between;
+    max-width: 100%;
+}
+
+.process-row:last-child {
+    /* Second row: Optimize (centered) */
+    justify-content: center;
+}
+
+.optimize-centered {
+    max-width: 300px;
+    text-align: center;
+}
+
+/* Responsive Design */
+@media (min-width: 992px) {
+    .triangular-process-layout {
+        gap: 3rem;
+    }
+    
+    .process-row {
+        gap: 3rem;
+    }
+    
+    .process-row:first-child {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 991px) and (min-width: 768px) {
+    .triangular-process-layout {
+        gap: 2rem;
+    }
+    
+    .process-row {
+        gap: 2rem;
+    }
+    
+    .process-row:first-child {
+        max-width: 100%;
+    }
+    
+    .circular-content-wrap {
+        max-width: 15ch;
+    }
+}
+
+@media (max-width: 767px) {
+    .triangular-process-layout {
+        gap: 1.5rem;
+    }
+    
+    .process-row {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+    
+    .process-row:first-child {
+        max-width: 100%;
+    }
+    
+    .circular-svg-wrap {
+        order: -1; /* Move image to top on mobile */
+    }
+    
+    .optimize-centered {
+        max-width: 100%;
+    }
+}
+
+/* Services Section Styles */
+.service-title-wrap
+ {
+    max-width: 100% !important;
+    display: flex;
+    position: sticky;
+    top: 5em;
+}
+
+.service-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: #666;
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+    margin-top: 1rem;
+    max-width: 100%;
+}
+
+.sub-services-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.sub-service-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+
+.sub-service-number {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+    min-width: 2rem;
+    line-height: 1.2;
+}
+
+.sub-service-content {
+    flex: 1;
+}
+
+.sub-service-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+}
+
+.sub-service-description {
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: #666;
+    margin: 0;
+}
+
+/* Responsive Design for Services */
+@media (max-width: 991px) {
+    .sub-services-grid {
+        gap: 1.5rem;
+    }
+    
+    .sub-service-item {
+        gap: 1rem;
+    }
+    
+    .sub-service-number {
+        font-size: 1.25rem;
+        min-width: 1.5rem;
+    }
+    
+    .sub-service-title {
+        font-size: 1.1rem;
+    }
+    
+    .sub-service-description {
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .service-description {
+        font-size: 1rem;
+        margin-top: 0.75rem;
+    }
+    
+    .sub-services-grid {
+        gap: 1.25rem;
+    }
+    
+    .sub-service-item {
+        gap: 0.75rem;
+    }
+    
+    .sub-service-number {
+        font-size: 1.1rem;
+        min-width: 1.25rem;
+    }
+    
+    .sub-service-title {
+        font-size: 1rem;
+    }
+    
+    .sub-service-description {
+        font-size: 0.85rem;
+    }
+}
+
+

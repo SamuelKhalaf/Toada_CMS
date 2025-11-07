@@ -1,0 +1,160 @@
+/* Toada Footer Styling */
+.toada-footer {
+    background-color: #1a0f3a !important;
+    color: white !important;
+    padding: 1rem 0 1rem 0 !important;
+}
+
+.toada-footer-content {
+    max-width: 1200px;
+    /* margin: 0 auto; */
+}
+
+.toada-footer-columns {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    gap: 1.5rem !important;
+    /* margin-bottom: 1.5rem !important; */
+}
+
+.toada-footer-column {
+    flex: 0 0 auto !important;
+}
+
+.toada-footer-left {
+    text-align: left !important;
+}
+
+.toada-footer-center {
+    text-align: center !important;
+    /* flex: 1 !important; */
+}
+
+.toada-footer-right {
+    text-align: right !important;
+}
+
+/* Toada Footer Logo and Slogan */
+.toada-footer-logo a {
+    display: inline-block !important;
+    text-decoration: none !important;
+}
+
+.toada-footer-logo img {
+    height: 40px !important;
+    width: auto !important;
+    margin-bottom: 0.5rem !important;
+    transition: opacity 0.3s ease !important;
+}
+
+.toada-footer-logo a:hover img {
+    opacity: 0.8 !important;
+}
+
+.toada-footer-slogan {
+    color: #ccc !important;
+    font-size: 1rem !important;
+    /* margin-bottom: 1.5rem !important; */
+    font-weight: 400 !important;
+}
+
+/* Toada Footer Links Row */
+.toada-footer-links-row {
+    display: flex !important;
+    flex-wrap: wrap !important;
+    gap: 1rem !important;
+    margin-top: 0.5rem !important;
+}
+
+.toada-footer-links-row a {
+    color: #ccc !important;
+    text-decoration: none !important;
+    font-size: 1.3rem !important;
+    transition: color 0.3s ease !important;
+}
+
+.toada-footer-links-row a:hover {
+    color: white !important;
+}
+
+/* Toada Social Icons */
+.toada-social-icons {
+    display: flex !important;
+    gap: 1rem !important;
+    /* margin-bottom: 1.5rem !important; */
+}
+
+.toada-social-icons a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border: 1px solid #333 !important;
+    border-radius: 50% !important;
+    color: white !important;
+    text-decoration: none !important;
+    transition: all 0.3s ease !important;
+}
+
+.toada-social-icons a:hover {
+    border-color: #555 !important;
+    transform: translateY(-2px) !important;
+}
+
+.toada-footer-column h3 {
+    color: white !important;
+    margin-bottom: 1rem !important;
+    font-size: 1.1rem !important;
+    font-weight: 600 !important;
+}
+
+.toada-footer-column ul {
+    list-style: none !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.toada-footer-column li {
+    margin-bottom: 0.5rem !important;
+}
+
+.toada-footer-column a {
+    color: #ccc !important;
+    text-decoration: none !important;
+    transition: color 0.3s ease !important;
+}
+
+.toada-footer-column a:hover {
+    color: white !important;
+}
+
+.toada-footer-bottom {
+    text-align: center !important;
+    padding-top: 2rem !important;
+    border-top: 1px solid #333 !important;
+}
+
+.toada-footer-bottom p {
+    color: #999 !important;
+    margin: 0 !important;
+    font-size: 0.9rem !important;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .toada-footer-columns {
+        flex-direction: column !important;
+        gap: 1rem !important;
+    }
+    .toada-footer-left {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 3rem;
+    }                
+    .toada-footer {
+        padding: 1rem 0 1rem 0 !important;
+    }
+}
