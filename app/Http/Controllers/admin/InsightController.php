@@ -45,12 +45,27 @@ class InsightController extends Controller
             })
             ->addColumn('actions', function ($insight) {
                 $actions = '<div class="text-center">
-                    <a href="' . route('admin.insights.edit', $insight->id) . '" class="btn btn-light btn-active-light-primary btn-sm">
+                    <a href="#" class="btn btn-light btn-active-light-primary btn-sm" data-kt-menu-trigger="click" data-kt-menu-placement="bottom-end">
+                        ' . __('common.actions') . '
+                        <span class="svg-icon svg-icon-5 m-0">
+                           <i class="fa-solid fa-angle-down"></i>
+                       </span>
+                    </a>';
+
+                $actions .= '<div class="menu menu-sub menu-sub-dropdown menu-column menu-rounded menu-gray-600 menu-state-bg-light-primary fw-semibold fs-7 w-125px py-4" data-kt-menu="true">';
+
+                    $actions .= '<div class="menu-item px-3">
+                    <a href="' . route('admin.insights.edit', $insight->id) . '" class="menu-link px-3">
                         ' . __('common.edit') . '
                     </a>
-                    <a href="#" class="btn btn-light btn-active-light-danger btn-sm" data-kt-insights-table-filter="delete_row"
+                </div>';
+
+                $actions .= '<div class="menu-item px-3">
+                    <a href="#" class="menu-link px-3 text-danger" data-kt-insights-table-filter="delete_row"
                        data-insight-id="' . $insight->id . '">' . __('common.delete') . '</a>
                 </div>';
+
+                $actions .= '</div></div>';
                 
                 return $actions;
             })

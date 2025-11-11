@@ -63,9 +63,10 @@
     $theme2Text = $getContent('theme_2_text', '');
     $theme3Title = $getContent('theme_3_title', 'Trend-Setter');
     $theme3Text = $getContent('theme_3_text', '');
-    $themesCircularData = $contentService->getContent('index', 'themes_circular_image', $currentLang);
     $themesCircularImage = $getImage('themes_circular_image');
-    $themesCircularCaption = is_array($themesCircularData) && isset($themesCircularData['caption']) ? $themesCircularData['caption'] : 'Our DNA';
+    // Get caption from separate themes_circular_caption section
+    $themesCircularCaptionDefault = $currentLang === 'ar' ? 'حمضنا النووي' : 'Our DNA';
+    $themesCircularCaption = $getContent('themes_circular_caption', $themesCircularCaptionDefault);
     
     $teamTitle = $getContent('team_title', 'Meet the Minds Behind the impact');
     $teamBackgroundImage = $getImage('team_background_image');
@@ -175,7 +176,7 @@
                                                 {{ $heroIntro }}
                                             </p>
                                             <a href="{{ route('contact') }}" data-w-id="f00b5019-30b4-4986-c6e1-b53269829657" class="button secondary w-inline-block">
-                                                <div class="button-text">Bring us your vision</div>
+                                                <div class="button-text">{{ __('common.bring_us_your_vision') }}</div>
                                                 <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
                                                 <div class="icon-wrapper">
                                                     <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
@@ -219,7 +220,17 @@
                                     <div id="w-node-_5c6454c6-42ee-2638-77a0-214b1e247be9-9697c3f8" class="label-wrap">
                                         <div id="w-node-_124d3e25-82a6-4c61-cfbe-08434a501db5-9697c3f8" style="font-size: 3rem;">
                                             @if(isset($philosophyData['highlight']))
-                                                {!! str_replace($philosophyData['highlight'], '<span style="color: #4C489D; font-weight: bold;">' . $philosophyData['highlight'] . '</span>', $philosophyData['text']) !!}
+                                                @php
+                                                    $text = $philosophyData['text'];
+                                                    if (is_array($philosophyData['highlight'])) {
+                                                        foreach ($philosophyData['highlight'] as $highlight) {
+                                                            $text = str_replace($highlight, '<span style="color: #4C489D; font-weight: bold;">' . $highlight . '</span>', $text);
+                                                        }
+                                                    } else {
+                                                        $text = str_replace($philosophyData['highlight'], '<span style="color: #4C489D; font-weight: bold;">' . $philosophyData['highlight'] . '</span>', $text);
+                                                    }
+                                                @endphp
+                                                {!! $text !!}
                                             @else
                                                 {{ $philosophyData['text'] }}
                                             @endif
@@ -231,7 +242,7 @@
                                     </div>
                                     <div id="w-node-b60af381-9b8f-f2eb-dd30-fc73a308abbf-9697c3f8" class="button-wrap" style="margin-top: 2rem;">
                                         <a href="{{ route('about') }}" data-w-id="b60af381-9b8f-f2eb-dd30-fc73a308abc0" class="button w-inline-block">
-                                            <div class="button-text">About Us</div>
+                                            <div class="button-text">{{ __('common.about_us') }}</div>
                                             <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
                                             <div class="icon-wrapper">
                                                 <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
@@ -262,7 +273,17 @@
                                         <div class="_50ch-headline-wrap">
                                             <h2 id="w-node-_667de9ba-8363-156a-e219-29f785437ff8-9697c3f8" data-w-id="667de9ba-8363-156a-e219-29f785437ff8" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);" class="display-4xl">
                                                 @if(isset($servicesData['highlight']))
-                                                    {!! str_replace($servicesData['highlight'], '<span style="color: #4C489D; font-weight: bold;">' . $servicesData['highlight'] . '</span>', $servicesData['text']) !!}
+                                                    @php
+                                                        $text = $servicesData['text'];
+                                                        if (is_array($servicesData['highlight'])) {
+                                                            foreach ($servicesData['highlight'] as $highlight) {
+                                                                $text = str_replace($highlight, '<span style="color: #4C489D; font-weight: bold;">' . $highlight . '</span>', $text);
+                                                            }
+                                                        } else {
+                                                            $text = str_replace($servicesData['highlight'], '<span style="color: #4C489D; font-weight: bold;">' . $servicesData['highlight'] . '</span>', $text);
+                                                        }
+                                                    @endphp
+                                                    {!! $text !!}
                                                 @else
                                                     {{ $servicesData['text'] }}
                                                 @endif
@@ -295,7 +316,7 @@
                                                             </div>
                                                             <div class="button-wrap">
                                                                 <a href="{{ route('services') }}" data-w-id="5e1a9e64-ae06-846e-aaef-028918009673" class="button w-inline-block">
-                                                                    <div class="button-text">Learn More</div>
+                                                                    <div class="button-text">{{ __('common.learn_more') }}</div>
                                                                     <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
                                                                     <div class="icon-wrapper">
                                                                         <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
@@ -335,7 +356,7 @@
                                                             </div>
                                                             <div class="button-wrap">
                                                                 <a href="{{ route('services') }}" data-w-id="ac1d1311-fbbe-5282-1c06-dba777c19669" class="button w-inline-block">
-                                                                    <div class="button-text">Learn More</div>
+                                                                    <div class="button-text">{{ __('common.learn_more') }}</div>
                                                                     <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
                                                                     <div class="icon-wrapper">
                                                                         <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
@@ -375,7 +396,7 @@
                                                             </div>
                                                             <div class="button-wrap">
                                                                 <a href="{{ route('services') }}" data-w-id="7f884948-d7d9-214c-a505-b517a8225c2b" class="button w-inline-block">
-                                                                    <div class="button-text">Learn More</div>
+                                                                    <div class="button-text">{{ __('common.learn_more') }}</div>
                                                                     <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
                                                                     <div class="icon-wrapper">
                                                                         <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">

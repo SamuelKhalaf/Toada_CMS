@@ -32,10 +32,20 @@
 <link href="{{ asset('images/favicon.png') }}" rel="shortcut icon" type="image/x-icon"/>
 <link href="{{ asset('images/apple-touch-icon.png') }}" rel="apple-touch-icon"/>
 <link href="{{ asset('css/toada.css') }}" rel="stylesheet" type="text/css"/>
+@if(app()->getLocale() === 'ar')
+<!-- <link href="{{ asset('css/rtl.css') }}" rel="stylesheet" type="text/css"/> -->
+@endif
 <style type="text/css">
     body {
         -webkit-font-smoothing: antialiased;
     }
+    
+    /* Arabic font support */
+    @if(app()->getLocale() === 'ar')
+    body, h1, h2, h3, h4, h5, h6, p, a, span, div {
+        font-family: 'LamaSans', 'Arial', 'Tahoma', sans-serif !important;
+    }
+    @endif
     .slide-content {
         background-color: #EBEBEB;
     }
@@ -88,6 +98,64 @@
         height: 2.5em !important;
         display: flex;
     }
+    
+    /* Prevent logo and menu button from toggling positions in RTL mode */
+    .container-nav {
+        direction: ltr !important;
+        flex-direction: row !important;
+    }
+    
+    [dir="rtl"] .container-nav {
+        direction: ltr !important;
+        flex-direction: row !important;
+    }
+    
+    /* Ensure logo stays on the left */
+    .logo-link {
+        order: 1 !important;
+    }
+    
+    /* Ensure menu button stays on the right */
+    .button-menu {
+        order: 3 !important;
+    }
+    
+    /* Language switcher stays in the middle */
+    .language-switcher {
+        order: 2 !important;
+    }
+    
+    /* RTL support for navigation content */
+    [dir="rtl"] .nav-content {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+    
+    [dir="rtl"] .nav-link-list {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+    
+    [dir="rtl"] .nav-link-item {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+    
+    [dir="rtl"] .nav-link-wrapper {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+    
+    [dir="rtl"] .nav-link {
+        direction: rtl !important;
+        text-align: right !important;
+    }
+    
+    [dir="rtl"] .display-xs {
+        direction: rtl !important;
+        text-align: right !important;
+    }
 </style>
 @yield('page-specific-styles')
+
 

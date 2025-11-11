@@ -9,6 +9,8 @@ class SocialMedia extends Model
 {
     use HasFactory;
 
+    protected $table = 'social_media_links';
+
     protected $fillable = [
         'platform',
         'url',

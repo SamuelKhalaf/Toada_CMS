@@ -146,9 +146,9 @@
                                     </div>
                                 </div>
                                 @endif
-                                <a href="{{ route('success-stories') }}" data-w-id="024c639b-f726-5006-5060-e59343ef8069" class="go-back-button w-inline-block">
+                                <a href="{{ route('insights') }}" data-w-id="024c639b-f726-5006-5060-e59343ef8069" class="go-back-button w-inline-block">
                                     <img src="{{ asset('images/blog-description/left-arrow.svg') }}" loading="lazy" alt="Back arrow" class="back-arrow-icon"/>
-                                    <div class="display-xs">View All</div>
+                                    <div class="display-xs">{{ __('common.view_all') }}</div>
                                 </a>
                             </div>
                         </div>

@@ -44,7 +44,7 @@
                     <div class="card-header border-0 pt-6">
                         <h3 class="card-title align-items-start flex-column">
                             <span class="card-label fw-bold fs-3 mb-1">@lang('navigation.pages')</span>
-                            <span class="text-muted mt-1 fw-semibold fs-7">Manage your website pages content</span>
+                            <span class="text-muted mt-1 fw-semibold fs-7">@lang('common.manage_pages_content')</span>
                         </h3>
                     </div>
                     <!--end::Card header-->
@@ -54,9 +54,9 @@
                             <table class="table align-middle table-row-dashed fs-6 gy-5">
                                 <thead>
                                 <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                    <th class="min-w-150px">Page</th>
-                                    <th class="min-w-150px">Description</th>
-                                    <th class="text-end min-w-100px">Actions</th>
+                                    <th class="min-w-150px">@lang('common.page')</th>
+                                    <th class="min-w-150px">@lang('common.description_english')</th>
+                                    <th class="text-end min-w-100px">@lang('common.actions')</th>
                                 </tr>
                                 </thead>
                                 <tbody class="text-gray-600 fw-semibold">
@@ -66,7 +66,7 @@
                                             <span class="fw-bold">Index</span>
                                         </div>
                                     </td>
-                                    <td>Home page content</td>
+                                    <td>@lang('common.home_page_content')</td>
                                     <td class="text-end">
                                         <a href="{{ route('admin.pages.edit', 'index') }}" class="btn btn-sm btn-light btn-active-light-primary">
                                             @lang('common.edit')
@@ -79,7 +79,7 @@
                                             <span class="fw-bold">About</span>
                                         </div>
                                     </td>
-                                    <td>About us page content</td>
+                                    <td>@lang('common.about_page_content')</td>
                                     <td class="text-end">
                                         <a href="{{ route('admin.pages.edit', 'about') }}" class="btn btn-sm btn-light btn-active-light-primary">
                                             @lang('common.edit')
@@ -92,7 +92,7 @@
                                             <span class="fw-bold">Services</span>
                                         </div>
                                     </td>
-                                    <td>Services page content</td>
+                                    <td>@lang('common.services_page_content')</td>
                                     <td class="text-end">
                                         <a href="{{ route('admin.pages.edit', 'services') }}" class="btn btn-sm btn-light btn-active-light-primary">
                                             @lang('common.edit')
@@ -105,7 +105,7 @@
                                             <span class="fw-bold">Contact</span>
                                         </div>
                                     </td>
-                                    <td>Contact page content</td>
+                                    <td>@lang('common.contact_page_content')</td>
                                     <td class="text-end">
                                         <a href="{{ route('admin.pages.edit', 'contact') }}" class="btn btn-sm btn-light btn-active-light-primary">
                                             @lang('common.edit')
@@ -118,9 +118,35 @@
                                             <span class="fw-bold">Common</span>
                                         </div>
                                     </td>
-                                    <td>Shared content (Let's Connect section)</td>
+                                    <td>@lang('common.shared_content')</td>
                                     <td class="text-end">
                                         <a href="{{ route('admin.pages.edit', 'common') }}" class="btn btn-sm btn-light btn-active-light-primary">
+                                            @lang('common.edit')
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="fw-bold">Insights</span>
+                                        </div>
+                                    </td>
+                                    <td>@lang('common.insights_page_content')</td>
+                                    <td class="text-end">
+                                        <a href="{{ route('admin.pages.edit', 'insights') }}" class="btn btn-sm btn-light btn-active-light-primary">
+                                            @lang('common.edit')
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="d-flex align-items-center">
+                                            <span class="fw-bold">Success Stories</span>
+                                        </div>
+                                    </td>
+                                    <td>@lang('common.success_stories_page_content')</td>
+                                    <td class="text-end">
+                                        <a href="{{ route('admin.pages.edit', 'success-stories') }}" class="btn btn-sm btn-light btn-active-light-primary">
                                             @lang('common.edit')
                                         </a>
                                     </td>

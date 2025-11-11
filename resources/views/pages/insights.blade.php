@@ -22,8 +22,36 @@
         return $contentService->getImage('insights', $sectionKey, $currentLang);
     };
     
+    // Get content with highlights
+    $getContentWithHighlight = function($sectionKey) use ($contentService, $currentLang) {
+        $content = $contentService->getContent('insights', $sectionKey, $currentLang);
+        if (is_array($content)) {
+            return $content;
+        }
+        return ['text' => $content, 'highlight' => null];
+    };
+    
+    // Helper to render title with highlights
+    $renderTitle = function($titleData) {
+        if (isset($titleData['highlight'])) {
+            if (is_array($titleData['highlight'])) {
+                $text = $titleData['text'];
+                foreach ($titleData['highlight'] as $highlight) {
+                    $text = str_replace($highlight, '<span style="color: #4C489D; font-weight: bold;">' . $highlight . '</span>', $text);
+                }
+                return $text;
+            } else {
+                return str_replace($titleData['highlight'], '<span style="color: #4C489D; font-weight: bold;">' . $titleData['highlight'] . '</span>', $titleData['text']);
+            }
+        }
+        return $titleData['text'];
+    };
+    
     // Load all content once
-    $heroTitle = $getContent('hero_title', 'Insights & Impact');
+    $heroTitleData = $getContentWithHighlight('hero_title');
+    if (empty($heroTitleData['text'])) {
+        $heroTitleData = ['text' => 'Insights & Impact', 'highlight' => null];
+    }
     $heroDescription1 = $getContent('hero_description_1', '');
     $heroDescription2 = $getContent('hero_description_2', '');
     $heroBackgroundImage = $getImage('hero_background_image');
@@ -96,7 +124,7 @@
                         <div data-w-id="27a77915-427f-1b28-44b7-1dc7a81d0223" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="animation-up-0-1">
                             <div class="w-layout-grid _12-column-grid">
                                 <div id="w-node-_28ae02fc-d690-e6f6-e085-271509c8a88d-c47d89ea" class="text-wrap">
-                                    <h2 id="w-node-_28ae02fc-d690-e6f6-e085-271509c8a88e-c47d89ea" data-w-id="28ae02fc-d690-e6f6-e085-271509c8a88e" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="display-7xl">{{ $heroTitle }}</h2>
+                                    <h2 id="w-node-_28ae02fc-d690-e6f6-e085-271509c8a88e-c47d89ea" data-w-id="28ae02fc-d690-e6f6-e085-271509c8a88e" style="-webkit-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 105%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="display-7xl">{!! $renderTitle($heroTitleData) !!}</h2>
                                 </div>
                                 <div id="w-node-d4a13f74-c2fe-0839-d8e1-a4c8c698229e-c47d89ea" class="team-text-wrap">
                                     <div class="_30-ch-text-block">

@@ -1,4 +1,5 @@
 /* Toada Footer Styling */
+/* RTL Compatible - uses flexbox for easy direction reversal */
 .toada-footer {
     background-color: #1a0f3a !important;
     color: white !important;
@@ -16,23 +17,26 @@
     align-items: center !important;
     gap: 1.5rem !important;
     /* margin-bottom: 1.5rem !important; */
+    /* RTL: Direction will be reversed in rtl.css */
 }
 
 .toada-footer-column {
     flex: 0 0 auto !important;
 }
 
-.toada-footer-left {
+/* .toada-footer-left {
     text-align: left !important;
-}
+} */
 
 .toada-footer-center {
     text-align: center !important;
     /* flex: 1 !important; */
+    /* RTL: Center alignment remains the same */
 }
 
 .toada-footer-right {
     text-align: right !important;
+    /* RTL: Will be overridden to text-align: left in rtl.css */
 }
 
 /* Toada Footer Logo and Slogan */
@@ -79,6 +83,7 @@
 }
 
 /* Toada Social Icons */
+/* RTL Compatible - flex direction will be reversed in rtl.css */
 .toada-social-icons {
     display: flex !important;
     gap: 1rem !important;
@@ -143,6 +148,7 @@
 }
 
 /* Responsive Design */
+/* RTL: Mobile layouts are handled in rtl.css with center alignment */
 @media (max-width: 768px) {
     .toada-footer-columns {
         flex-direction: column !important;
@@ -153,6 +159,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 3rem;
+        /* RTL: Direction will be reversed in rtl.css on mobile */
     }                
     .toada-footer {
         padding: 1rem 0 1rem 0 !important;

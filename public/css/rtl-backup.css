@@ -1,0 +1,678 @@
+/* ========================================
+   RTL (Right-to-Left) Stylesheet for Arabic
+   ========================================
+   This file contains RTL overrides for Arabic language support.
+   It mirrors layouts, flips directions, and adjusts alignments.
+   ======================================== */
+
+/* ========================================
+   HTML & Body RTL Base
+   ======================================== */
+[dir="rtl"] {
+    direction: rtl;
+    text-align: right;
+}
+
+[dir="rtl"] body {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ========================================
+   Navigation - Header
+   ======================================== */
+
+
+
+/* Nav content alignment */
+[dir="rtl"] .nav-content {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-link-list {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-link-wrapper {
+    text-align: right;
+}
+
+/* Display numbers positioning */
+[dir="rtl"] .display-xs {
+    margin-right: 0;
+    margin-left: 0.5em;
+}
+
+/* Social icons in nav */
+[dir="rtl"] .social-icons-wrap {
+    direction: rtl;
+}
+
+/* ========================================
+   Footer
+   ======================================== */
+
+/* Flip footer column alignments */
+[dir="rtl"] .toada-footer-left {
+    text-align: right !important;
+}
+
+[dir="rtl"] .toada-footer-right {
+    text-align: left !important;
+}
+
+[dir="rtl"] .toada-footer-center {
+    text-align: center !important;
+}
+
+/* Footer links row direction */
+[dir="rtl"] .toada-footer-links-row {
+    direction: rtl;
+}
+
+/* Social icons direction */
+[dir="rtl"] .toada-social-icons {
+    flex-direction: row-reverse;
+}
+
+/* Footer columns order on desktop */
+[dir="rtl"] .toada-footer-columns {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   Text Alignment Utilities
+   ======================================== */
+
+[dir="rtl"] .text-left {
+    text-align: right !important;
+}
+
+[dir="rtl"] .text-right {
+    text-align: left !important;
+}
+
+/* ========================================
+   Flexbox Alignment Overrides
+   ======================================== */
+
+[dir="rtl"] .align-items-flex-start {
+    align-items: flex-end;
+}
+
+[dir="rtl"] .align-items-flex-end {
+    align-items: flex-start;
+}
+
+[dir="rtl"] .justify-content-flex-start {
+    justify-content: flex-end;
+}
+
+[dir="rtl"] .justify-content-flex-end {
+    justify-content: flex-start;
+}
+
+/* Slide content alignment */
+[dir="rtl"] .slide-content {
+    align-items: flex-end;
+}
+
+[dir="rtl"] .slide-content.right {
+    align-items: center;
+}
+
+/* ========================================
+   Margins & Padding Mirroring
+   ======================================== */
+
+/* Margin overrides - swap left and right */
+[dir="rtl"] .margin-left {
+    margin-left: 0;
+    margin-right: var(--margin-value, 1rem);
+}
+
+[dir="rtl"] .margin-right {
+    margin-right: 0;
+    margin-left: var(--margin-value, 1rem);
+}
+
+/* Padding overrides - swap left and right */
+[dir="rtl"] .padding-left {
+    padding-left: 0;
+    padding-right: var(--padding-value, 1rem);
+}
+
+[dir="rtl"] .padding-right {
+    padding-right: 0;
+    padding-left: var(--padding-value, 1rem);
+}
+
+/* Container padding */
+/* [dir="rtl"] .container-nav {
+    padding-left: var(--site-padding--desktop, 2rem);
+    padding-right: var(--site-padding--desktop, 2rem);
+} */
+
+/* Blog container */
+[dir="rtl"] .blog-container {
+    padding-left: 0;
+    padding-right: var(--site-padding--desktop, 2rem);
+}
+
+/* ========================================
+   Positioning - Absolute Elements
+   ======================================== */
+
+/* Button icon arrow */
+[dir="rtl"] .button-icon-arrow {
+    right: auto;
+    left: 0;
+}
+
+[dir="rtl"] .button-icon-arrow.hover {
+    left: auto;
+    right: -100%;
+}
+
+/* Arrow positioning */
+[dir="rtl"] .arrow-right-hover {
+    left: auto;
+    right: 0;
+}
+
+/* Team image wrap */
+[dir="rtl"] .team-image-wrap {
+    right: 0;
+    left: auto;
+}
+
+/* ========================================
+   Buttons & Links
+   ======================================== */
+
+/* Primary Button */
+[dir="rtl"] .button {
+    flex-direction: row-reverse;
+}
+
+/* Let's Connect Button */
+[dir="rtl"] .let-s-connect-button {
+    flex-direction: row-reverse;
+}
+
+/* Go back button */
+[dir="rtl"] .go-back-button {
+    flex-direction: row-reverse;
+}
+
+/* Button text alignment */
+[dir="rtl"] .button-text {
+    text-align: right;
+}
+
+/* Icon wrapper */
+[dir="rtl"] .icon-wrapper {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   Icons & Arrows
+   ======================================== */
+
+/* Reverse arrow directions for RTL */
+[dir="rtl"] .arrow-right {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .arrow-right-hover {
+    transform: scaleX(-1);
+    left: auto;
+    right: 0;
+}
+
+/* Flip SVG arrows inside w-embed */
+[dir="rtl"] .arrow-right.w-embed svg,
+[dir="rtl"] .arrow-right-hover.w-embed svg {
+    transform: scaleX(-1);
+}
+
+/* Button icon arrows - flip the SVG */
+[dir="rtl"] .button-icon-arrow svg,
+[dir="rtl"] .button-icon-arrow.w-embed svg {
+    transform: scaleX(-1);
+}
+
+/* Back arrow icon */
+[dir="rtl"] .back-arrow-icon {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .back-arrow-icon svg {
+    transform: scaleX(-1);
+}
+
+/* Arrows container */
+[dir="rtl"] .arrows-container {
+    flex-direction: row-reverse;
+}
+
+/* Icon embed */
+[dir="rtl"] .icon-embed {
+    flex-direction: row-reverse;
+}
+
+/* W-embed SVG containers */
+[dir="rtl"] .w-embed {
+    direction: rtl;
+}
+
+/* Feather icons - flip arrow icons */
+[dir="rtl"] .feather-arrow-right {
+    transform: scaleX(-1);
+}
+
+/* All feather arrow icons should be flipped */
+[dir="rtl"] svg.feather-arrow-right {
+    transform: scaleX(-1);
+}
+
+/* Menu icon lines - no need to flip, keep as is */
+
+/* ========================================
+   Grid Layouts
+   ======================================== */
+
+/* Two-column layouts */
+[dir="rtl"] .w-layout-grid {
+    direction: rtl;
+}
+
+/* 12 column grid */
+[dir="rtl"] ._12-column-grid {
+    direction: rtl;
+}
+
+/* Grid items */
+[dir="rtl"] .grid-item {
+    text-align: right;
+}
+
+/* Card sections */
+[dir="rtl"] .card-section {
+    direction: rtl;
+}
+
+/* Let's connect content */
+[dir="rtl"] .let-s-connect-content {
+    text-align: right;
+}
+
+/* Let's connect divider - works the same in RTL */
+
+/* ========================================
+   Content Sections
+   ======================================== */
+
+/* Section headers */
+[dir="rtl"] .section-header {
+    text-align: right;
+}
+
+/* Side content wrap */
+[dir="rtl"] .side-content-wrap {
+    text-align: right;
+}
+
+/* 50ch headline wrap */
+[dir="rtl"] ._50ch-headline-wrap {
+    text-align: right;
+}
+
+/* Rich text wrap */
+[dir="rtl"] .rich-text-wrap {
+    direction: rtl;
+    text-align: right;
+}
+
+/* ========================================
+   Team & Bio Pages
+   ======================================== */
+
+[dir="rtl"] .team-bio {
+    align-items: flex-end;
+}
+
+[dir="rtl"] .bio-header {
+    align-items: flex-end;
+    text-align: right;
+}
+
+[dir="rtl"] .right-wrap {
+    text-align: right;
+}
+
+/* ========================================
+   Forms & Inputs
+   ======================================== */
+
+[dir="rtl"] input,
+[dir="rtl"] textarea,
+[dir="rtl"] select {
+    text-align: right;
+    direction: rtl;
+}
+
+[dir="rtl"] .form-label {
+    text-align: right;
+}
+
+/* ========================================
+   Lists
+   ======================================== */
+
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+    padding-left: 0;
+    padding-right: 2rem;
+}
+
+[dir="rtl"] li {
+    text-align: right;
+}
+
+/* ========================================
+   Navigation Links
+   ======================================== */
+
+[dir="rtl"] .nav-link-item {
+    text-align: right;
+}
+
+[dir="rtl"] .nav-link {
+    text-align: right;
+}
+
+/* ========================================
+   Cards & Overlays
+   ======================================== */
+
+[dir="rtl"] .cards-wrapper {
+    direction: rtl;
+}
+
+[dir="rtl"] .card-side {
+    direction: rtl;
+}
+
+[dir="rtl"] .overlap-wrap {
+    direction: rtl;
+}
+
+/* ========================================
+   Hover Component
+   ======================================== */
+
+[dir="rtl"] .hover-component {
+    direction: rtl;
+}
+
+[dir="rtl"] .view-project {
+    text-align: right;
+    flex-direction: row-reverse;
+}
+
+/* Mono text - typically used for labels */
+[dir="rtl"] .mono-text {
+    text-align: right;
+    direction: rtl;
+}
+
+/* ========================================
+   Page Wrapper
+   ======================================== */
+
+[dir="rtl"] .page-wrapper {
+    direction: rtl;
+}
+
+[dir="rtl"] .main-wrapper {
+    direction: rtl;
+}
+
+/* ========================================
+   Responsive Adjustments
+   ======================================== */
+
+@media (max-width: 991px) {
+    
+    /* Footer mobile adjustments */
+    [dir="rtl"] .toada-footer-left {
+        flex-direction: row-reverse;
+    }
+    
+    /* Arrow responsive adjustments */
+    [dir="rtl"] .arrow-right-hover {
+        left: auto;
+        right: 0;
+        inset: auto 0% 0% auto;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Stack footer columns */
+    [dir="rtl"] .toada-footer-columns {
+        flex-direction: column;
+    }
+    
+    [dir="rtl"] .toada-footer-left,
+    [dir="rtl"] .toada-footer-center,
+    [dir="rtl"] .toada-footer-right {
+        text-align: center !important;
+    }
+}
+
+@media (max-width: 479px) {
+    /* Small mobile adjustments */
+    /* [dir="rtl"] .container-nav {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    } */
+}
+
+/* ========================================
+   Language Switcher
+   ======================================== */
+
+[dir="rtl"] .language-switcher {
+    margin-left: 0;
+    margin-right: 1rem;
+}
+
+[dir="rtl"] .language-switcher-button {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   Specific Component Adjustments
+   ======================================== */
+
+/* Triangular process layout */
+[dir="rtl"] .triangular-process-layout {
+    direction: rtl;
+}
+
+[dir="rtl"] .process-row {
+    flex-direction: row-reverse;
+}
+
+/* Insights and stories */
+[dir="rtl"] .insight-card,
+[dir="rtl"] .story-card {
+    text-align: right;
+}
+
+/* Contact form */
+[dir="rtl"] .contact-form {
+    text-align: right;
+}
+
+/* Services grid */
+[dir="rtl"] .services-grid {
+    direction: rtl;
+}
+
+/* Hero section */
+[dir="rtl"] .hero-section {
+    text-align: right;
+}
+
+/* ========================================
+   Button Hover Effects & Animations
+   ======================================== */
+
+/* Button background animations - work with standard positioning */
+
+/* Hover line animations */
+[dir="rtl"] .hover-line {
+    /* Width animation works the same */
+    transform-origin: right center;
+}
+
+/* Button bottom line - width animation works the same in RTL */
+
+/* ========================================
+   Animation & Transform Overrides
+   ======================================== */
+
+/* Button icon arrow animations - adjust for RTL */
+[dir="rtl"] .button-icon-arrow.hover {
+    /* Maintain inline transforms but adjust position */
+    right: -100%;
+    left: auto;
+}
+
+/* Icon wrapper transforms and animation containers preserve animations in RTL */
+
+/* ========================================
+   Labels & Decorative Elements
+   ======================================== */
+
+/* Label wrap - reverse order of elements */
+[dir="rtl"] .label-wrap {
+    flex-direction: row-reverse;
+}
+
+/* Label square - transform rotation remains the same in RTL */
+
+/* Location wrap */
+[dir="rtl"] .location-wrap {
+    flex-direction: row-reverse;
+}
+
+/* ========================================
+   Sliders & Carousels
+   ======================================== */
+
+/* Slider arrow directions */
+[dir="rtl"] .w-slider-arrow-left {
+    transform: scaleX(-1);
+}
+
+[dir="rtl"] .w-slider-arrow-right {
+    transform: scaleX(-1);
+}
+
+/* ========================================
+   Text Direction Enforcement
+   ======================================== */
+
+/* Ensure all paragraph text follows RTL */
+[dir="rtl"] p,
+[dir="rtl"] .text-block,
+[dir="rtl"] .paragraph {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Headings */
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Display text classes */
+[dir="rtl"] .display-xl,
+[dir="rtl"] .display-2xl,
+[dir="rtl"] .display-3xl,
+[dir="rtl"] .display-4xl,
+[dir="rtl"] .display-5xl,
+[dir="rtl"] .display-6xl,
+[dir="rtl"] .display-7xl {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Display large and other variants */
+[dir="rtl"] .display-large,
+[dir="rtl"] .display-medium,
+[dir="rtl"] .display-small {
+    direction: rtl;
+    text-align: right;
+}
+
+/* Display large with black color */
+[dir="rtl"] .display-large.black {
+    text-align: right;
+}
+
+/* ========================================
+   Additional Webflow Class Overrides
+   ======================================== */
+
+[dir="rtl"] .w-inline-block {
+    direction: rtl;
+}
+
+[dir="rtl"] .w-button {
+    direction: rtl;
+}
+
+/* Block elements */
+[dir="rtl"] .block {
+    text-align: right;
+}
+
+/* Section elements */
+[dir="rtl"] .section {
+    direction: rtl;
+}
+
+[dir="rtl"] .let-s-connect {
+    direction: rtl;
+}
+
+/* Menu overlay */
+[dir="rtl"] .menu-overlay {
+    right: 0;
+    left: 0;
+}
+
+/* Navigation bar */
+[dir="rtl"] .nav-bar {
+    direction: rtl;
+}
+
+/* Container */
+[dir="rtl"] .container {
+    direction: rtl;
+}
+
+/* ========================================
+   End of RTL Stylesheet
+   ======================================== */
+

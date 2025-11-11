@@ -28,7 +28,7 @@
                 <div id="w-node-_6dd116de-d0b6-461f-60d6-5b54b526b458-b526b44e" class="let-s-connect-divider"></div>
                 <div id="w-node-_6dd116de-d0b6-461f-60d6-5b54b526b459-b526b44e" class="block">
                     <a href="{{ route('contact') }}" data-w-id="e90632fc-e163-01eb-cc83-2af0651199b1" class="let-s-connect-button w-inline-block">
-                        <div>Let &#x27;s Connect</div>
+                        <div>{{ __('common.lets_connect') }}</div>
                         <div class="button-bottom-line"></div>
                         <div class="hover-line"></div>
                         <div class="arrows-container">

@@ -97,7 +97,7 @@
                                     @endif
                                     <a href="{{ route('insights') }}" data-w-id="024c639b-f726-5006-5060-e59343ef8069" class="go-back-button w-inline-block">
                                         <img src="{{ asset('images/blog-description/left-arrow.svg') }}" loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(null) rotateZ(0deg) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(null) rotateZ(0deg) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(null) rotateZ(0deg) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(null) rotateY(null) rotateZ(0deg) skew(0, 0);transform-style:preserve-3d" alt="" class="back-arrow-icon"/>
-                                        <div class="display-xs">View All</div>
+                                        <div class="display-xs">{{ __('common.view_all') }}</div>
                                     </a>
                                 </div>
                                 <div id="w-node-_052d1ee4-38bb-6a19-838a-b57e7f53f681-ca984a06" data-w-id="052d1ee4-38bb-6a19-838a-b57e7f53f681" style="width:0%" class="divider"></div>

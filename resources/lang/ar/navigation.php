@@ -7,6 +7,7 @@ return [
     'pages' => 'الصفحات',
     'social_media' => 'وسائل التواصل الاجتماعي',
     'insights' => 'الرؤى',
+    'insights_impact' => 'الرؤى والتأثير',
     'stories' => 'القصص',
 
     // Breadcrumbs

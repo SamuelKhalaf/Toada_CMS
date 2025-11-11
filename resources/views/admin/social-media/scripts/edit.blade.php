@@ -21,6 +21,29 @@
                         form.querySelector('[name="url"]').value = response.url || '';
                         form.querySelector('[name="order"]').value = response.order || 0;
                         document.getElementById('is_active_edit').checked = response.is_active || false;
+                        
+                        // Set icon path and preview
+                        const iconPathInput = document.getElementById('icon_path_edit');
+                        const iconPreview = document.querySelector('#kt_modal_update_social .icon-preview');
+                        const removeBtn = document.querySelector('#kt_modal_update_social .remove-icon-btn');
+                        
+                        if (response.icon_path) {
+                            iconPathInput.value = response.icon_path;
+                            if (iconPreview) {
+                                iconPreview.innerHTML = `<img src="{{ asset('storage/') }}/${response.icon_path}" alt="Icon Preview" style="max-width: 100px; height: auto;">`;
+                            }
+                            if (removeBtn) {
+                                removeBtn.style.display = 'inline-block';
+                            }
+                        } else {
+                            iconPathInput.value = '';
+                            if (iconPreview) {
+                                iconPreview.innerHTML = '<div class="border rounded p-3 text-center text-muted" style="min-height: 60px; display: flex; align-items: center; justify-content: center;"><small>{{ __('common.no_icon') }}</small></div>';
+                            }
+                            if (removeBtn) {
+                                removeBtn.style.display = 'none';
+                            }
+                        }
                     },
                     error: function () {
                         Swal.fire({
@@ -105,5 +128,35 @@
     KTUtil.onDOMContentLoaded(function () {
         KTSocialMediaUpdate.init();
     });
-</script>
 
+    // Icon upload functionality for edit modal
+    document.addEventListener('DOMContentLoaded', function() {
+        // Handle icon upload button clicks in edit modal
+        document.querySelectorAll('#kt_modal_update_social .upload-icon-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const targetInput = this.closest('.icon-upload-wrapper').querySelector('.icon-path-input');
+                document.getElementById('target_icon_input').value = targetInput.id;
+                
+                // Reset form
+                document.getElementById('kt_form_icon_upload').reset();
+                document.querySelector('#kt_modal_icon_upload .image-preview-upload').style.display = 'none';
+                
+                const iconModal = new bootstrap.Modal(document.getElementById('kt_modal_icon_upload'));
+                iconModal.show();
+            });
+        });
+
+        // Handle remove icon button in edit modal
+        document.querySelectorAll('#kt_modal_update_social .remove-icon-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                const wrapper = this.closest('.icon-upload-wrapper');
+                const iconPathInput = wrapper.querySelector('.icon-path-input');
+                const iconPreview = wrapper.querySelector('.icon-preview');
+                
+                iconPathInput.value = '';
+                iconPreview.innerHTML = '<div class="border rounded p-3 text-center text-muted" style="min-height: 60px; display: flex; align-items: center; justify-content: center;"><small>{{ __('common.no_icon') }}</small></div>';
+                this.style.display = 'none';
+            });
+        });
+    });
+</script>

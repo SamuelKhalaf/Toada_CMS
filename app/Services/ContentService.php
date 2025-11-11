@@ -105,9 +105,18 @@ class ContentService
     public function clearCache($pageName = null)
     {
         if ($pageName) {
-            // Clear cache for specific page
-            $patterns = ["page_content_{$pageName}_*"];
-            $this->clearCacheByPattern($patterns);
+            // Get all section keys for this page
+            $sections = \App\Services\PageSectionConfigService::getPageSections($pageName);
+            $languages = ['ar', 'en'];
+            
+            // Clear cache for each section and language combination
+            foreach ($sections as $section) {
+                $sectionKey = $section['key'];
+                foreach ($languages as $language) {
+                    $cacheKey = "page_content_{$pageName}_{$sectionKey}_{$language}";
+                    Cache::forget($cacheKey);
+                }
+            }
         } else {
             // Clear all page content cache
             Cache::flush();

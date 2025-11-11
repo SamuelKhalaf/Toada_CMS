@@ -47,6 +47,7 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
     Route::get('/social-media/{socialMedia}/edit', [SocialMediaController::class, 'edit'])->name('social-media.edit');
     Route::put('/social-media/{socialMedia}', [SocialMediaController::class, 'update'])->name('social-media.update');
     Route::delete('/social-media/{socialMedia}', [SocialMediaController::class, 'destroy'])->name('social-media.destroy');
+    Route::post('/social-media/upload-icon', [SocialMediaController::class, 'uploadIcon'])->name('social-media.upload-icon');
 
     // Insights Routes
     Route::get('/insights', [InsightController::class, 'index'])->name('insights.index');

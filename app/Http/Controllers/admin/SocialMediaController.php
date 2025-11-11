@@ -7,6 +7,7 @@ use App\Models\SocialMedia;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use Yajra\DataTables\DataTables;
 
 class SocialMediaController extends Controller
@@ -74,7 +75,7 @@ class SocialMediaController extends Controller
                 'url' => $request->url,
                 'icon_path' => $request->icon_path,
                 'order' => $request->order ?? 0,
-                'is_active' => $request->is_active ?? true,
+                'is_active' => $request->boolean('is_active'),
             ]);
 
             DB::commit();
@@ -122,7 +123,7 @@ class SocialMediaController extends Controller
                 'url' => $request->url,
                 'icon_path' => $request->icon_path,
                 'order' => $request->order ?? 0,
-                'is_active' => $request->is_active ?? true,
+                'is_active' => $request->boolean('is_active'),
             ]);
 
             DB::commit();
@@ -146,6 +147,11 @@ class SocialMediaController extends Controller
         try {
             DB::beginTransaction();
 
+            // Delete icon if exists
+            if ($socialMedia->icon_path && Storage::disk('public')->exists($socialMedia->icon_path)) {
+                Storage::disk('public')->delete($socialMedia->icon_path);
+            }
+
             $socialMedia->delete();
 
             DB::commit();
@@ -160,6 +166,36 @@ class SocialMediaController extends Controller
             return response()->json([
                 'success' => false,
                 'message' => 'Operation failed'
+            ], Response::HTTP_INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    public function uploadIcon(Request $request)
+    {
+        $request->validate([
+            'image' => 'required|image|mimes:jpeg,png,jpg,svg,webp|max:5120', // 5MB max
+        ]);
+
+        try {
+            $image = $request->file('image');
+
+            // Generate unique filename
+            $filename = 'social_media_' . time() . '_' . uniqid() . '.' . $image->getClientOriginalExtension();
+
+            // Store in storage/app/public/content
+            $path = $image->storeAs('content', $filename, 'public');
+
+            // Return the path relative to storage/app/public
+            return response()->json([
+                'status' => 'success',
+                'path' => $path,
+                'url' => asset('storage/' . $path),
+            ]);
+
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Failed to upload icon: ' . $e->getMessage()
             ], Response::HTTP_INTERNAL_SERVER_ERROR);
         }
     }

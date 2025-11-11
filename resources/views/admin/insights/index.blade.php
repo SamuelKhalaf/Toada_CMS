@@ -50,7 +50,7 @@
                                     <i class="fa-solid fa-magnifying-glass"></i>
                                 </span>
                                 <input type="text" data-kt-insights-table-filter="search"
-                                       class="form-control form-control-solid w-250px ps-14" placeholder="Search..."/>
+                                       class="form-control form-control-solid w-250px ps-14" placeholder="@lang('common.search')..."/>
                             </div>
                             <!--end::Search-->
                         </div>
@@ -64,7 +64,7 @@
                                     <span class="svg-icon svg-icon-2">
                                         <i class="fa-solid fa-plus"></i>
                                     </span>
-                                    Add Insight
+                                    @lang('common.add_insight')
                                 </a>
                                 <!--end::Add insight-->
                             </div>
@@ -80,10 +80,10 @@
                             <!--begin::Table head-->
                             <thead>
                             <tr class="text-start text-muted fw-bold fs-7 text-uppercase gs-0">
-                                <th class="min-w-200px">Title</th>
-                                <th class="min-w-150px">Category</th>
-                                <th class="min-w-100px">Status</th>
-                                <th class="min-w-125px">Published At</th>
+                                <th class="min-w-200px">@lang('common.title')</th>
+                                <th class="min-w-150px">@lang('common.category')</th>
+                                <th class="min-w-100px">@lang('common.status')</th>
+                                <th class="min-w-125px">@lang('common.published_at')</th>
                                 <th class="text-center min-w-100px">@lang('common.actions')</th>
                             </tr>
                             </thead>

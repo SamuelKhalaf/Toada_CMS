@@ -165,7 +165,7 @@
         }
         
         .service-description {
-            text-align: left !important;
+            /* text-align: left !important; */
             line-height: 1.6 !important;
             margin: 0 !important;
         }
@@ -183,6 +183,11 @@
                 flex: none !important;
                 width: 100% !important;
             }
+        }
+        
+        /* RTL support for header icon */
+        [dir="rtl"] .header-icon-wrap {
+            inset: auto auto 0% 0% !important;
         }
     </style>
 @endsection
