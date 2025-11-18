@@ -161,5 +161,14 @@ return [
     'icon_upload_description' => 'Upload a custom icon (SVG, PNG, JPG) or leave empty to use default platform icon',
     'lower_numbers_first' => 'Lower numbers appear first',
     'icon_uploaded_successfully' => 'Icon uploaded successfully',
+    
+    // Subscription
+    'stay_updated' => 'Stay Updated with Our Latest Articles',
+    'subscribe_description' => 'Subscribe to our newsletter and get notified when we publish new insights and articles.',
+    'enter_email' => 'Enter your email address',
+    'subscribe' => 'Subscribe',
+    'thank_you_subscribing' => 'Thank you for subscribing! You will be notified about new articles.',
+    'already_subscribed' => 'You are already subscribed!',
+    'something_went_wrong' => 'Something went wrong. Please try again later.',
 ];
 

@@ -161,5 +161,14 @@ return [
     'icon_upload_description' => 'رفع أيقونة مخصصة (SVG، PNG، JPG) أو اتركه فارغاً لاستخدام أيقونة المنصة الافتراضية',
     'lower_numbers_first' => 'الأرقام الأقل تظهر أولاً',
     'icon_uploaded_successfully' => 'تم رفع الأيقونة بنجاح',
+    
+    // Subscription
+    'stay_updated' => 'ابق على اطلاع بآخر مقالاتنا',
+    'subscribe_description' => 'اشترك في نشرتنا الإخبارية واحصل على إشعارات عند نشر رؤى ومقالات جديدة.',
+    'enter_email' => 'أدخل عنوان بريدك الإلكتروني',
+    'subscribe' => 'اشترك',
+    'thank_you_subscribing' => 'شكراً لك على الاشتراك! سيتم إشعارك بالمقالات الجديدة.',
+    'already_subscribed' => 'أنت مشترك بالفعل!',
+    'something_went_wrong' => 'حدث خطأ ما. يرجى المحاولة مرة أخرى لاحقاً.',
 ];
 

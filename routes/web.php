@@ -3,6 +3,7 @@
 use App\Http\Controllers\PageController;
 use App\Http\Controllers\FrontendInsightController;
 use App\Http\Controllers\FrontendStoryController;
+use App\Http\Controllers\SubscriptionController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -41,3 +42,6 @@ Route::get('/language/switch/{language}', [App\Http\Controllers\admin\LanguageCo
 
 Route::get('/language/current', [App\Http\Controllers\admin\LanguageController::class, 'current'])
     ->name('language.current');
+
+// Subscription route
+Route::post('/subscribe', [SubscriptionController::class, 'subscribe'])->name('subscribe');

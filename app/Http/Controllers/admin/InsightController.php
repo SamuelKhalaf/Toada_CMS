@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Insight;
 use App\Models\InsightTranslation;
+use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -139,6 +140,17 @@ class InsightController extends Controller
 
             DB::commit();
 
+            // Send notifications if article is published
+            if ($insight->status === 'published' && $insight->published_at && $insight->published_at <= now()) {
+                try {
+                    $notificationService = new NotificationService();
+                    $notificationService->notifySubscribers($insight, 'insight');
+                } catch (\Exception $e) {
+                    // Log error but don't fail the request
+                    \Log::error('Failed to send notifications: ' . $e->getMessage());
+                }
+            }
+
             return response()->json([
                 'status' => 'success',
                 'message' => __('insights.insight_created'),
@@ -187,6 +199,10 @@ class InsightController extends Controller
         try {
             DB::beginTransaction();
 
+            // Check if status is changing from draft to published
+            $wasDraft = $insight->status === 'draft';
+            $isNowPublished = $request->status === 'published';
+
             $insight->update([
                 'slug' => $request->slug ?? $insight->slug,
                 'category_en' => $request->category_en,
@@ -225,6 +241,17 @@ class InsightController extends Controller
             }
 
             DB::commit();
+
+            // Send notifications if article was just published (changed from draft to published)
+            if ($wasDraft && $isNowPublished && $insight->published_at && $insight->published_at <= now()) {
+                try {
+                    $notificationService = new NotificationService();
+                    $notificationService->notifySubscribers($insight, 'insight');
+                } catch (\Exception $e) {
+                    // Log error but don't fail the request
+                    \Log::error('Failed to send notifications: ' . $e->getMessage());
+                }
+            }
 
             return response()->json([
                 'status' => 'success',

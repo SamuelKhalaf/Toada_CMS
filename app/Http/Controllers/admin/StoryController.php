@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Models\Story;
 use App\Models\StoryTranslation;
+use App\Services\NotificationService;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\DB;
@@ -139,6 +140,17 @@ class StoryController extends Controller
 
             DB::commit();
 
+            // Send notifications if article is published
+            if ($story->status === 'published' && $story->published_at && $story->published_at <= now()) {
+                try {
+                    $notificationService = new NotificationService();
+                    $notificationService->notifySubscribers($story, 'story');
+                } catch (\Exception $e) {
+                    // Log error but don't fail the request
+                    \Log::error('Failed to send notifications: ' . $e->getMessage());
+                }
+            }
+
             return response()->json([
                 'status' => 'success',
                 'message' => __('stories.story_created'),
@@ -187,6 +199,10 @@ class StoryController extends Controller
         try {
             DB::beginTransaction();
 
+            // Check if status is changing from draft to published
+            $wasDraft = $story->status === 'draft';
+            $isNowPublished = $request->status === 'published';
+
             $story->update([
                 'slug' => $request->slug ?? $story->slug,
                 'category_en' => $request->category_en,
@@ -225,6 +241,17 @@ class StoryController extends Controller
             }
 
             DB::commit();
+
+            // Send notifications if article was just published (changed from draft to published)
+            if ($wasDraft && $isNowPublished && $story->published_at && $story->published_at <= now()) {
+                try {
+                    $notificationService = new NotificationService();
+                    $notificationService->notifySubscribers($story, 'story');
+                } catch (\Exception $e) {
+                    // Log error but don't fail the request
+                    \Log::error('Failed to send notifications: ' . $e->getMessage());
+                }
+            }
 
             return response()->json([
                 'status' => 'success',
