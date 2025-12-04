@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Insight;
 use App\Models\Story;
+use App\Models\Project;
 use Illuminate\Http\Request;
 
 class FrontendInsightController extends Controller
@@ -22,7 +23,10 @@ class FrontendInsightController extends Controller
             ->orderByDesc('published_at')
             ->get();
         
-        return view('pages.insights', compact('insights', 'stories'));
+        // Get all published projects
+        $projects = Project::getPublished();
+        
+        return view('pages.insights', compact('insights', 'stories', 'projects'));
     }
 
     public function show($slug)

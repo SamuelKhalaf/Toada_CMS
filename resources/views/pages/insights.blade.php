@@ -233,6 +233,117 @@
                         </div>
                     </div>
                 </div>
+                <div class="section recent-projects-section">
+                    <div class="container">
+                        <div data-w-id="recent-projects-section" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="animation-up-0-1">
+                            <div class="projects-header">
+                                <h2 class="projects-title">{{ __('common.recent_projects') }}</h2>
+                                <p class="projects-subtitle">{{ __('common.discover_latest_initiatives') }}</p>
+                            </div>
+                            
+                            <div class="projects-grid">
+                                @forelse($projects as $project)
+                                    @php
+                                        $translation = $project->translation(app()->getLocale());
+                                    @endphp
+                                    <div class="project-card">
+                                        <div class="project-card-inner">
+                                            <div class="project-image-wrapper">
+                                                @if($translation && $translation->badge_text)
+                                                    <div class="project-badge">
+                                                        <span class="badge-text">{{ $translation->badge_text }}</span>
+                                                    </div>
+                                                @endif
+                                                @if($project->featured_image)
+                                                    <img src="{{ asset('storage/' . $project->featured_image) }}" alt="{{ $translation ? $translation->title : '' }}" class="project-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                                                @endif
+                                                <div class="project-image-placeholder" style="display: none;">
+                                                    <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                                                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                                                        <polyline points="21 15 16 10 5 21"></polyline>
+                                                    </svg>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="project-content">
+                                                <div class="project-date-location">
+                                                    <div class="date-icon">
+                                                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                                                            <line x1="16" y1="2" x2="16" y2="6"></line>
+                                                            <line x1="8" y1="2" x2="8" y2="6"></line>
+                                                            <line x1="3" y1="10" x2="21" y2="10"></line>
+                                                        </svg>
+                                                    </div>
+                                                    <div class="date-info">
+                                                        @if($project->date_range)
+                                                            <div class="date-range">{{ $project->date_range }}</div>
+                                                        @endif
+                                                        @if($project->location_text && $project->location_url)
+                                                            <a href="{{ $project->location_url }}" target="_blank" rel="noopener noreferrer" class="location">
+                                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                                                    <circle cx="12" cy="10" r="3"></circle>
+                                                                </svg>
+                                                                <span>{{ $project->location_text }}</span>
+                                                            </a>
+                                                        @elseif($project->location_text)
+                                                            <div class="location">
+                                                                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
+                                                                    <circle cx="12" cy="10" r="3"></circle>
+                                                                </svg>
+                                                                <span>{{ $project->location_text }}</span>
+                                                            </div>
+                                                        @endif
+                                                    </div>
+                                                </div>
+                                                
+                                                @if($translation)
+                                                    <h3 class="project-title">{{ $translation->title }}</h3>
+                                                    
+                                                    <p class="project-description">{{ $translation->description }}</p>
+                                                @endif
+                                                
+                                                <div class="project-footer">
+                                                    @if($project->tags && is_array($project->tags) && count($project->tags) > 0)
+                                                        <div class="project-tags">
+                                                            @foreach($project->tags as $tag)
+                                                                <span class="tag">{{ $tag }}</span>
+                                                            @endforeach
+                                                        </div>
+                                                    @endif
+                                                    @php
+                                                        $registerUrl = app()->getLocale() === 'ar' ? $project->register_url_ar : $project->register_url_en;
+                                                    @endphp
+                                                    @if($registerUrl)
+                                                        <a href="{{ $registerUrl }}" target="_blank" class="project-register-button">
+                                                            {{ __('common.register_now') }}
+                                                            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                                                <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                <polyline points="12 5 19 12 12 19"></polyline>
+                                                            </svg>
+                                                        </a>
+                                                    @endif
+                                                </div>
+                                            </div>
+                                            <div class="project-card-overlay"></div>
+                                        </div>
+                                    </div>
+                                @empty
+                                    <div class="project-card">
+                                        <div class="project-card-inner">
+                                            <div class="project-content">
+                                                <p class="text-muted">No projects available at the moment.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                @endforelse
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="section subscription-section-modern">
                     <div class="container">
                         <div data-w-id="subscription-section" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="animation-up-0-1">
@@ -352,6 +463,407 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <style>
+/* Recent Projects Section */
+.recent-projects-section {
+    padding: 6rem 0;
+    background: #ffffff;
+    position: relative;
+}
+
+.recent-projects-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #e0e0e0, transparent);
+}
+
+.projects-header {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.projects-title {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 1rem 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.projects-subtitle {
+    font-size: 1.125rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.project-card {
+    position: relative;
+    height: 100%;
+}
+
+.project-card-inner {
+    position: relative;
+    background: #ffffff;
+    border-radius: 16px;
+    overflow: hidden;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid #f0f0f0;
+}
+
+@media (min-width: 768px) {
+    .project-card-inner {
+        flex-direction: row;
+        height: auto;
+        min-height: 350px;
+    }
+}
+
+.project-card-inner:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 40px rgba(76, 72, 157, 0.15);
+    border-color: #4C489D;
+}
+
+.project-card-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(76, 72, 157, 0.05) 0%, rgba(58, 53, 120, 0.02) 100%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.project-card-inner:hover .project-card-overlay {
+    opacity: 1;
+}
+
+.project-image-wrapper {
+    position: relative;
+    width: 100%;
+    height: 250px;
+    overflow: hidden;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+    .project-image-wrapper {
+        width: 45%;
+        height: 100%;
+        min-height: 350px;
+    }
+}
+
+.project-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card-inner:hover .project-image {
+    transform: scale(1.05);
+}
+
+.project-image-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+    color: #999;
+}
+
+.project-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    z-index: 2;
+}
+
+.badge-text {
+    display: inline-block;
+    background: linear-gradient(135deg, #4C489D 0%, #3a3578 100%);
+    color: #ffffff;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 10px rgba(76, 72, 157, 0.3);
+}
+
+.project-content {
+    padding: 2rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+@media (min-width: 768px) {
+    .project-content {
+        width: 55%;
+        padding: 2.5rem;
+    }
+}
+
+.project-date-location {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.date-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, #4C489D 0%, #3a3578 100%);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.date-info {
+    flex: 1;
+}
+
+.date-range {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin-bottom: 0.5rem;
+}
+
+.location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+.location svg {
+    flex-shrink: 0;
+    color: #4C489D;
+}
+
+.project-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    margin: 0 0 1rem 0;
+    line-height: 1.3;
+}
+
+.project-description {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0 0 1.5rem 0;
+    flex: 1;
+}
+
+.project-footer {
+    margin-top: auto;
+    padding-top: 1.5rem;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.project-register-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: linear-gradient(135deg, #4C489D 0%, #3a3578 100%);
+    color: #ffffff;
+    padding: 0.875rem 1.75rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(76, 72, 157, 0.3);
+    width: 100%;
+    text-align: center;
+}
+
+.project-register-button:hover {
+    background: linear-gradient(135deg, #3a3578 0%, #2d2859 100%);
+    box-shadow: 0 4px 20px rgba(76, 72, 157, 0.4);
+    transform: translateY(-2px);
+}
+
+.project-register-button:active {
+    transform: translateY(0);
+}
+
+.project-register-button svg {
+    transition: transform 0.3s ease;
+}
+
+.project-register-button:hover svg {
+    transform: translateX(4px);
+}
+
+[dir="rtl"] .project-register-button:hover svg {
+    transform: translateX(-4px);
+}
+
+.tag {
+    display: inline-block;
+    background: #f8f9fa;
+    color: #4C489D;
+    padding: 0.375rem 0.875rem;
+    border-radius: 20px;
+    font-size: 0.875rem;
+    font-weight: 500;
+    border: 1px solid #e9ecef;
+    transition: all 0.2s ease;
+}
+
+.tag:hover {
+    background: #4C489D;
+    color: #ffffff;
+    border-color: #4C489D;
+}
+
+/* Ensure projects section is visible */
+#recent-projects-section.animation-up-0-1,
+[data-w-id="recent-projects-section"].animation-up-0-1 {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+    -webkit-transform: translate3d(0, 0, 0) !important;
+    -moz-transform: translate3d(0, 0, 0) !important;
+    -ms-transform: translate3d(0, 0, 0) !important;
+}
+
+.w-mod-js [data-w-id="recent-projects-section"] {
+    opacity: 1 !important;
+    transform: translate3d(0, 0, 0) !important;
+}
+
+/* Responsive Design */
+@media (max-width: 991px) {
+    .recent-projects-section {
+        padding: 4rem 0;
+    }
+    
+    .projects-header {
+        margin-bottom: 3rem;
+    }
+    
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .recent-projects-section {
+        padding: 3rem 0;
+    }
+    
+    .projects-title {
+        font-size: 1.75rem;
+    }
+    
+    .projects-subtitle {
+        font-size: 1rem;
+        padding: 0 1rem;
+    }
+    
+    .project-image-wrapper {
+        height: 200px;
+    }
+    
+    .project-content {
+        padding: 1.5rem;
+    }
+    
+    .project-title {
+        font-size: 1.5rem;
+    }
+    
+    .date-icon {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .date-icon svg {
+        width: 18px;
+        height: 18px;
+    }
+    
+    .project-badge {
+        top: 1rem;
+        right: 1rem;
+    }
+    
+    .badge-text {
+        padding: 0.375rem 0.75rem;
+        font-size: 0.7rem;
+    }
+    
+    .project-register-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.95rem;
+    }
+}
+
+@media (min-width: 768px) {
+    .project-footer {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    
+    .project-register-button {
+        width: auto;
+        min-width: 180px;
+    }
+}
+
 /* Modern Subscription Section */
 .subscription-section-modern {
     padding: 6rem 0;

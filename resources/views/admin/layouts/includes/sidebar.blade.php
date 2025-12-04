@@ -108,6 +108,21 @@
                     <!--end:Menu link-->
                 </div>
                 <!--end:Menu item-->
+                
+                <!--begin:Menu item-->
+                <div class="menu-item {{setMenuOpenClass(['admin.projects.index', 'admin.projects.create', 'admin.projects.edit'])}}">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{setActiveClass(['admin.projects.index', 'admin.projects.create', 'admin.projects.edit'])}}" href="{{route('admin.projects.index')}}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <i class="fa-solid fa-briefcase"></i>
+                            </span>
+                        </span>
+                        <span class="menu-title">@lang('common.projects')</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
             </div>
             <!--end::Menu-->
         </div>

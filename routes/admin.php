@@ -5,6 +5,7 @@ use App\Http\Controllers\admin\PageContentController;
 use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\StoryController;
+use App\Http\Controllers\admin\ProjectController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -68,6 +69,16 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
     Route::put('/stories/{story}', [StoryController::class, 'update'])->name('stories.update');
     Route::delete('/stories/{story}', [StoryController::class, 'destroy'])->name('stories.destroy');
     Route::post('/stories/upload-image', [StoryController::class, 'uploadImage'])->name('stories.upload-image');
+
+    // Projects Routes
+    Route::get('/projects', [ProjectController::class, 'index'])->name('projects.index');
+    Route::get('/projects/all', [ProjectController::class, 'getProjectsDatatable'])->name('projects.datatable');
+    Route::get('/projects/create', [ProjectController::class, 'create'])->name('projects.create');
+    Route::post('/projects', [ProjectController::class, 'store'])->name('projects.store');
+    Route::get('/projects/{project}/edit', [ProjectController::class, 'edit'])->name('projects.edit');
+    Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
+    Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
+    Route::post('/projects/upload-image', [ProjectController::class, 'uploadImage'])->name('projects.upload-image');
 
 });
 
