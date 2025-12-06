@@ -318,7 +318,13 @@
                                                         $registerUrl = app()->getLocale() === 'ar' ? $project->register_url_ar : $project->register_url_en;
                                                     @endphp
                                                     @if($registerUrl)
-                                                        <a href="{{ $registerUrl }}" target="_blank" class="project-register-button">
+                                                        <a href="{{ $registerUrl }}" 
+                                                           target="_blank" 
+                                                           class="project-register-button"
+                                                           data-project-slug="{{ $project->slug }}"
+                                                           data-project-title="{{ $translation ? $translation->title : $project->slug }}"
+                                                           data-project-location="{{ $project->location_text ?? '' }}"
+                                                           data-ga-track="register-button">
                                                             {{ __('common.register_now') }}
                                                             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                                                 <line x1="5" y1="12" x2="19" y2="12"></line>
@@ -460,6 +466,44 @@ document.addEventListener('DOMContentLoaded', function() {
             messageDiv.style.display = 'none';
         }, 5000);
     }
+
+    // Google Analytics tracking for register button clicks
+    const registerButtons = document.querySelectorAll('[data-ga-track="register-button"]');
+    registerButtons.forEach(function(button) {
+        button.addEventListener('click', function(e) {
+            const projectSlug = this.getAttribute('data-project-slug') || '';
+            const projectTitle = this.getAttribute('data-project-title') || '';
+            const projectLocation = this.getAttribute('data-project-location') || '';
+            const registerUrl = this.getAttribute('href') || '';
+
+            // Check if Google Analytics is loaded
+            if (typeof gtag !== 'undefined') {
+                // Track the register button click event
+                gtag('event', 'register_button_click', {
+                    'event_category': 'Project Registration',
+                    'event_label': projectTitle || projectSlug,
+                    'project_slug': projectSlug,
+                    'project_title': projectTitle,
+                    'project_location': projectLocation,
+                    'register_url': registerUrl,
+                    'value': 1
+                });
+
+                // Special tracking for "Made in Saudi" project
+                if (projectSlug === 'made-in-saudi-2025' || projectTitle.toLowerCase().includes('made in saudi')) {
+                    gtag('event', 'made_in_saudi_register_click', {
+                        'event_category': 'Made in Saudi Project',
+                        'event_label': 'Register Button Click - Made in Saudi 2025',
+                        'project_slug': projectSlug,
+                        'project_title': projectTitle,
+                        'project_location': projectLocation,
+                        'register_url': registerUrl,
+                        'value': 1
+                    });
+                }
+            }
+        });
+    });
 });
 </script>
 <style>
