@@ -233,7 +233,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="section recent-projects-section">
+                <div id="projects" class="section recent-projects-section">
                     <div class="container">
                         <div data-w-id="recent-projects-section" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="animation-up-0-1">
                             <div class="projects-header">
@@ -507,6 +507,10 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 </script>
 <style>
+
+#projects {
+    scroll-margin-top: 100px;
+}
 /* Recent Projects Section */
 .recent-projects-section {
     padding: 6rem 0;
