@@ -378,7 +378,7 @@
                                 </div>
                                 <div class="register-button-wrapper">
                                     <a href="https://toadacompany.systeme.io/f81feee3" target="_blank" rel="noopener noreferrer" class="button secondary w-inline-block">
-                                        <div class="button-text">Register Now</div>
+                                        <div class="button-text">{{ $currentLang === 'ar' ? 'سجل الآن' : 'Register Now' }}</div>
                                         <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
                                         <div class="icon-wrapper">
                                             <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
@@ -742,15 +742,20 @@
         const autoPlayInterval = 5000; // 5 seconds
         let autoPlayTimer;
         
+        // Detect RTL mode
+        const isRTL = document.documentElement.dir === 'rtl' || $('html').attr('dir') === 'rtl';
+        
         // Initialize carousel to show slide 2
-        $wrapper.css('transform', 'translateX(-50%)');
+        const initialTranslate = isRTL ? '50%' : '-50%';
+        $wrapper.css('transform', `translateX(${initialTranslate})`);
 
         function goToSlide(index) {
             if (index < 0) index = totalSlides - 1;
             if (index >= totalSlides) index = 0;
             
             currentSlide = index;
-            const translateX = -currentSlide * 50;
+            // In RTL, we need to translate in the opposite direction
+            const translateX = isRTL ? (currentSlide * 50) : (-currentSlide * 50);
             $wrapper.css('transform', `translateX(${translateX}%)`);
             
             // Update dots
