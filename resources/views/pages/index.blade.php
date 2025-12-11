@@ -158,58 +158,252 @@
                 filter: blur(0px);
             }
         }
+        
+        /* Hero Carousel Styles */
+        .hero-carousel {
+            position: relative;
+            overflow: hidden;
+            height: 100vh;
+            min-height: 600px;
+            padding-bottom: 0 !important;
+        }
+        
+        .hero-carousel-wrapper {
+            display: flex;
+            transition: transform 0.6s ease-in-out;
+            width: 200%;
+            height: 100%;
+        }
+        
+        .hero-slide {
+            width: 50%;
+            flex-shrink: 0;
+            height: 100%;
+        }
+        
+        .hero-slide .hero-content {
+            height: 100%;
+        }
+        
+        .hero-slide-2 {
+            position: relative;
+        }
+        
+        .hero-slide-2 .hero-content {
+            position: relative;
+            display: flex;
+            align-items: flex-end;
+            justify-content: flex-end;
+            padding: 2rem;
+        }
+        
+        .hero-slide-2 .header-image-wrapper {
+            height: 100%;
+        }
+        
+        .hero-slide-2 .full-image-slide {
+            width: 100%;
+            height: 100%;
+            /* object-fit: cover; */
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        
+        .hero-slide-2 .register-button-wrapper {
+            position: absolute;
+            bottom: 10rem;
+            right: 10rem;
+            z-index: 10;
+        }
+        
+        .carousel-dots {
+            position: absolute;
+            bottom: 2rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.75rem;
+            z-index: 20;
+        }
+        
+        .carousel-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .carousel-dot.active {
+            background: #fff;
+            width: 32px;
+            border-radius: 6px;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-slide-2 .register-button-wrapper {
+                bottom: 5rem;
+                right: 40%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-slide-2 .register-button-wrapper {
+                bottom: 20%;
+                right: 34%;
+            }
+        }
+
+        /* Register Button Styles */
+        .register-button-wrapper .button {
+            background-color: #F6D400 !important;
+            color: #000 !important;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            /* padding: 1em 1.5em !important; */
+        }
+
+        .register-button-wrapper .button-text {
+            color: #000 !important;
+        }
+
+        @media (min-width: 992px) {
+            .register-button-wrapper .button {
+                padding: 1.3em 2.5em !important;
+            }
+        }
+
+        .register-button-wrapper .button:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 20px rgba(246, 212, 0, 0.4);
+        }
+
+        .register-button-wrapper .button-background.cover {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            background-color: rgba(0, 0, 0, 0.1);
+        }
+
+        .register-button-wrapper .button:hover .button-background.cover {
+            -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+        }
+
+        .register-button-wrapper .button-icon-arrow.hover {
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .register-button-wrapper .button:hover .button-icon-arrow.hover {
+            -webkit-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            -moz-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            -ms-transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+            transform: translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);
+        }
+
+        .register-button-wrapper .button:active {
+            transform: translateY(0) scale(1);
+        }
     </style>
 @endsection
 
 @section('content')
-                <div id="Hero" class="section hero">
-                    <div class="hero-content" >
-                        <div class="hero-content-wrapper">
-                            <div data-w-id="e9c54af6-1d6f-b4ff-e3eb-6661252f0024" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="animation-up-0-1">
-                                <div class="hero-top">
-                                    <div class="w-layout-grid _12-column-grid hero">
-                                        <div id="w-node-_9a84e4f1-8302-797d-66ec-0df0ead5c9a2-9697c3f8" class="hero-headline-text" style="max-width: 60ch;">
-                                            <h2 class="display-7xl" style="font-weight: 500;">{{ $heroTitle }}</h2>
-                                        </div>
-                                        <div id="w-node-_99f7e1eb-2c65-e7ab-c37c-9cae345006c7-9697c3f8" class="home-hero-content-wrap">
-                                            <p class="hero-intro-text" style="font-weight: 400;">
-                                                {{ $heroIntro }}
-                                            </p>
-                                            <a href="{{ route('contact') }}" data-w-id="f00b5019-30b4-4986-c6e1-b53269829657" class="button secondary w-inline-block">
-                                                <div class="button-text">{{ __('common.bring_us_your_vision') }}</div>
-                                                <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
-                                                <div class="icon-wrapper">
-                                                    <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-                                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                                        </svg>
-                                                    </div>
-                                                    <div class="button-icon-arrow w-embed">
-                                                        <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
-                                                            <line x1="5" y1="12" x2="19" y2="12"></line>
-                                                            <polyline points="12 5 19 12 12 19"></polyline>
-                                                        </svg>
-                                                    </div>
+                <div id="Hero" class="section hero hero-carousel">
+                    <div class="hero-carousel-wrapper">
+                        <!-- Slide 1: Original Hero Content -->
+                        <div class="hero-slide hero-slide-1">
+                            <div class="hero-content">
+                                <div class="hero-content-wrapper">
+                                    <div data-w-id="e9c54af6-1d6f-b4ff-e3eb-6661252f0024" style="-webkit-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 20px, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0" class="animation-up-0-1">
+                                        <div class="hero-top">
+                                            <div class="w-layout-grid _12-column-grid hero">
+                                                <div id="w-node-_9a84e4f1-8302-797d-66ec-0df0ead5c9a2-9697c3f8" class="hero-headline-text" style="max-width: 60ch;">
+                                                    <h2 class="display-7xl" style="font-weight: 500;">{{ $heroTitle }}</h2>
                                                 </div>
-                                            </a>
+                                                <div id="w-node-_99f7e1eb-2c65-e7ab-c37c-9cae345006c7-9697c3f8" class="home-hero-content-wrap">
+                                                    <p class="hero-intro-text" style="font-weight: 400;">
+                                                        {{ $heroIntro }}
+                                                    </p>
+                                                    <a href="{{ route('contact') }}" data-w-id="f00b5019-30b4-4986-c6e1-b53269829657" class="button secondary w-inline-block">
+                                                        <div class="button-text">{{ __('common.bring_us_your_vision') }}</div>
+                                                        <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
+                                                        <div class="icon-wrapper">
+                                                            <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                                </svg>
+                                                            </div>
+                                                            <div class="button-icon-arrow w-embed">
+                                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                                </svg>
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="hero-bottom">
+                                        <div class="location-wrap">
+                                            <!-- <div class="display-xs">2025</div>
+                                            <div id="w-node-_713ecd43-4f95-9152-79f0-3b4197acf972-9697c3f8" class="display-xs">Based in Austin, TX</div> -->
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="hero-bottom">
-                                <div class="location-wrap">
-                                    <!-- <div class="display-xs">2025</div>
-                                    <div id="w-node-_713ecd43-4f95-9152-79f0-3b4197acf972-9697c3f8" class="display-xs">Based in Austin, TX</div> -->
+                                <div class="header-image-wrapper" style="opacity: 1;">
+                                    <div class="hero-image-overlay"></div>
+                                    @if($heroImage)
+                                    <img data-w-id="3561d8df-5151-7e32-e083-b156f9abd845" loading="lazy" alt="" src="{{ $heroImage }}" class="header-image"/>
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        <div class="header-image-wrapper" style="opacity: 1;">
-                            <div class="hero-image-overlay"></div>
-                            @if($heroImage)
-                            <img data-w-id="3561d8df-5151-7e32-e083-b156f9abd845" loading="lazy" alt="" src="{{ $heroImage }}" class="header-image"/>
-                            @endif
+
+                        <!-- Slide 2: Made in Saudi Exhibition -->
+                        <div class="hero-slide hero-slide-2">
+                            <div class="hero-content">
+                                <div class="header-image-wrapper" style="opacity: 1;">
+                                    <picture>
+                                        <source media="(max-width: 500px)" srcset="{{ asset('images/made_in_saudi_500px.jpeg') }}">
+                                        <source media="(max-width: 768px)" srcset="{{ asset('images/made_in_saudi_768px.jpeg') }}">
+                                        <img loading="lazy" alt="Made in Saudi Exhibition" src="{{ asset('images/made_in_saudi.png') }}" class="full-image-slide"/>
+                                    </picture>
+                                </div>
+                                <div class="register-button-wrapper">
+                                    <a href="https://toadacompany.systeme.io/f81feee3" target="_blank" rel="noopener noreferrer" class="button secondary w-inline-block">
+                                        <div class="button-text">Register Now</div>
+                                        <div style="-webkit-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-100%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-background cover"></div>
+                                        <div class="icon-wrapper">
+                                            <div style="-webkit-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-16%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" class="button-icon-arrow hover w-embed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                </svg>
+                                            </div>
+                                            <div class="button-icon-arrow w-embed">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-arrow-right">
+                                                    <line x1="5" y1="12" x2="19" y2="12"></line>
+                                                    <polyline points="12 5 19 12 12 19"></polyline>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
                         </div>
+                    </div>
+
+                    <!-- Carousel Navigation Dots -->
+                    <div class="carousel-dots">
+                        <button class="carousel-dot" data-slide="0" aria-label="Go to slide 1"></button>
+                        <button class="carousel-dot active" data-slide="1" aria-label="Go to slide 2"></button>
                     </div>
                 </div>
                 <div class="overlap-wrap">
@@ -536,4 +730,98 @@
                         </div>
                     </div>
                     @include('partials.lets-connect')
+@endsection
+
+@section('scripts')
+<script>
+    $(document).ready(function() {
+        let currentSlide = 1;
+        const totalSlides = 2;
+        const $wrapper = $('.hero-carousel-wrapper');
+        const $dots = $('.carousel-dot');
+        const autoPlayInterval = 5000; // 5 seconds
+        let autoPlayTimer;
+        
+        // Initialize carousel to show slide 2
+        $wrapper.css('transform', 'translateX(-50%)');
+
+        function goToSlide(index) {
+            if (index < 0) index = totalSlides - 1;
+            if (index >= totalSlides) index = 0;
+            
+            currentSlide = index;
+            const translateX = -currentSlide * 50;
+            $wrapper.css('transform', `translateX(${translateX}%)`);
+            
+            // Update dots
+            $dots.removeClass('active');
+            $dots.eq(currentSlide).addClass('active');
+            
+            // Reset auto-play timer
+            resetAutoPlay();
+        }
+
+        function nextSlide() {
+            goToSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            goToSlide(currentSlide - 1);
+        }
+
+        function resetAutoPlay() {
+            clearInterval(autoPlayTimer);
+            autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
+        }
+
+        // Navigation dots
+        $dots.on('click', function() {
+            const slideIndex = $(this).data('slide');
+            goToSlide(slideIndex);
+        });
+
+        // Keyboard navigation
+        $(document).on('keydown', function(e) {
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+        });
+
+        // Touch swipe support
+        let touchStartX = 0;
+        let touchEndX = 0;
+
+        $('.hero-carousel').on('touchstart', function(e) {
+            touchStartX = e.originalEvent.touches[0].clientX;
+        });
+
+        $('.hero-carousel').on('touchend', function(e) {
+            touchEndX = e.originalEvent.changedTouches[0].clientX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            if (touchEndX < touchStartX - 50) {
+                nextSlide();
+            }
+            if (touchEndX > touchStartX + 50) {
+                prevSlide();
+            }
+        }
+
+        // Start auto-play
+        resetAutoPlay();
+
+        // Pause auto-play on hover
+        $('.hero-carousel').on('mouseenter', function() {
+            clearInterval(autoPlayTimer);
+        });
+
+        $('.hero-carousel').on('mouseleave', function() {
+            resetAutoPlay();
+        });
+    });
+</script>
 @endsection
