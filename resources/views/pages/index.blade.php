@@ -739,7 +739,7 @@
         const totalSlides = 2;
         const $wrapper = $('.hero-carousel-wrapper');
         const $dots = $('.carousel-dot');
-        const autoPlayInterval = 5000; // 5 seconds
+        const autoPlayInterval = 25000; // 25 seconds
         let autoPlayTimer;
         
         // Detect RTL mode
