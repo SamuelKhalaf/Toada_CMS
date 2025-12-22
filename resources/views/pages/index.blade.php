@@ -171,12 +171,12 @@
         .hero-carousel-wrapper {
             display: flex;
             transition: transform 0.6s ease-in-out;
-            width: 200%;
+            width: 100%;
             height: 100%;
         }
         
         .hero-slide {
-            width: 50%;
+            width: 100%;
             flex-shrink: 0;
             height: 100%;
         }
@@ -367,7 +367,7 @@
                         </div>
 
                         <!-- Slide 2: Made in Saudi Exhibition -->
-                        <div class="hero-slide hero-slide-2">
+                        <div class="hero-slide hero-slide-2" style="display: none;">
                             <div class="hero-content">
                                 <div class="header-image-wrapper" style="opacity: 1;">
                                     <picture>
@@ -401,9 +401,9 @@
                     </div>
 
                     <!-- Carousel Navigation Dots -->
-                    <div class="carousel-dots">
-                        <button class="carousel-dot" data-slide="0" aria-label="Go to slide 1"></button>
-                        <button class="carousel-dot active" data-slide="1" aria-label="Go to slide 2"></button>
+                    <div class="carousel-dots" style="display: none;">
+                        <button class="carousel-dot active" data-slide="0" aria-label="Go to slide 1"></button>
+                        <!-- <button class="carousel-dot active" data-slide="1" aria-label="Go to slide 2"></button> -->
                     </div>
                 </div>
                 <div class="overlap-wrap">
@@ -735,8 +735,8 @@
 @section('scripts')
 <script>
     $(document).ready(function() {
-        let currentSlide = 1;
-        const totalSlides = 2;
+        let currentSlide = 0;
+        const totalSlides = 1; // Only slide 1 is active
         const $wrapper = $('.hero-carousel-wrapper');
         const $dots = $('.carousel-dot');
         const autoPlayInterval = 25000; // 25 seconds
@@ -745,13 +745,12 @@
         // Detect RTL mode
         const isRTL = document.documentElement.dir === 'rtl' || $('html').attr('dir') === 'rtl';
         
-        // Initialize carousel to show slide 2
-        const initialTranslate = isRTL ? '50%' : '-50%';
-        $wrapper.css('transform', `translateX(${initialTranslate})`);
+        // Initialize carousel to show slide 1 (index 0)
+        $wrapper.css('transform', 'translateX(0%)');
 
         function goToSlide(index) {
-            if (index < 0) index = totalSlides - 1;
-            if (index >= totalSlides) index = 0;
+            // Disable navigation since we only have 1 slide
+            if (index < 0 || index >= totalSlides) return;
             
             currentSlide = index;
             // In RTL, we need to translate in the opposite direction
@@ -762,21 +761,24 @@
             $dots.removeClass('active');
             $dots.eq(currentSlide).addClass('active');
             
-            // Reset auto-play timer
-            resetAutoPlay();
+            // Reset auto-play timer (disabled since only 1 slide)
+            // resetAutoPlay();
         }
 
         function nextSlide() {
-            goToSlide(currentSlide + 1);
+            // Disabled - only 1 slide
+            // goToSlide(currentSlide + 1);
         }
 
         function prevSlide() {
-            goToSlide(currentSlide - 1);
+            // Disabled - only 1 slide
+            // goToSlide(currentSlide - 1);
         }
 
         function resetAutoPlay() {
             clearInterval(autoPlayTimer);
-            autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
+            // Auto-play disabled since only 1 slide
+            // autoPlayTimer = setInterval(nextSlide, autoPlayInterval);
         }
 
         // Navigation dots
@@ -785,48 +787,48 @@
             goToSlide(slideIndex);
         });
 
-        // Keyboard navigation
-        $(document).on('keydown', function(e) {
-            if (e.key === 'ArrowLeft') {
-                prevSlide();
-            } else if (e.key === 'ArrowRight') {
-                nextSlide();
-            }
-        });
+        // Keyboard navigation - disabled
+        // $(document).on('keydown', function(e) {
+        //     if (e.key === 'ArrowLeft') {
+        //         prevSlide();
+        //     } else if (e.key === 'ArrowRight') {
+        //         nextSlide();
+        //     }
+        // });
 
-        // Touch swipe support
-        let touchStartX = 0;
-        let touchEndX = 0;
+        // Touch swipe support - disabled
+        // let touchStartX = 0;
+        // let touchEndX = 0;
 
-        $('.hero-carousel').on('touchstart', function(e) {
-            touchStartX = e.originalEvent.touches[0].clientX;
-        });
+        // $('.hero-carousel').on('touchstart', function(e) {
+        //     touchStartX = e.originalEvent.touches[0].clientX;
+        // });
 
-        $('.hero-carousel').on('touchend', function(e) {
-            touchEndX = e.originalEvent.changedTouches[0].clientX;
-            handleSwipe();
-        });
+        // $('.hero-carousel').on('touchend', function(e) {
+        //     touchEndX = e.originalEvent.changedTouches[0].clientX;
+        //     handleSwipe();
+        // });
 
-        function handleSwipe() {
-            if (touchEndX < touchStartX - 50) {
-                nextSlide();
-            }
-            if (touchEndX > touchStartX + 50) {
-                prevSlide();
-            }
-        }
+        // function handleSwipe() {
+        //     if (touchEndX < touchStartX - 50) {
+        //         nextSlide();
+        //     }
+        //     if (touchEndX > touchStartX + 50) {
+        //         prevSlide();
+        //     }
+        // }
 
-        // Start auto-play
-        resetAutoPlay();
+        // Start auto-play - disabled
+        // resetAutoPlay();
 
-        // Pause auto-play on hover
-        $('.hero-carousel').on('mouseenter', function() {
-            clearInterval(autoPlayTimer);
-        });
+        // Pause auto-play on hover - disabled
+        // $('.hero-carousel').on('mouseenter', function() {
+        //     clearInterval(autoPlayTimer);
+        // });
 
-        $('.hero-carousel').on('mouseleave', function() {
-            resetAutoPlay();
-        });
+        // $('.hero-carousel').on('mouseleave', function() {
+        //     resetAutoPlay();
+        // });
     });
 </script>
 @endsection

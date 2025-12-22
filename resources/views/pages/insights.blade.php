@@ -237,6 +237,7 @@
                         </div>
                     </div>
                 </div>
+                @if(isset($projects) && $projects->count() > 0)
                 <div id="projects" class="section recent-projects-section">
                     <div class="container">
                         <div data-w-id="recent-projects-section" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="animation-up-0-1">
@@ -246,7 +247,7 @@
                             </div>
                             
                             <div class="projects-grid">
-                                @forelse($projects as $project)
+                                @foreach($projects as $project)
                                     @php
                                         $translation = $project->translation(app()->getLocale());
                                     @endphp
@@ -341,19 +342,12 @@
                                             <div class="project-card-overlay"></div>
                                         </div>
                                     </div>
-                                @empty
-                                    <div class="project-card">
-                                        <div class="project-card-inner">
-                                            <div class="project-content">
-                                                <p class="text-muted">No projects available at the moment.</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                @endforelse
+                                @endforeach
                             </div>
                         </div>
                     </div>
                 </div>
+                @endif
                 <div class="section subscription-section-modern">
                     <div class="container">
                         <div data-w-id="subscription-section" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="animation-up-0-1">
