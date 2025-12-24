@@ -348,7 +348,7 @@
                     </div>
                 </div>
                 @endif
-                <div class="section subscription-section-modern">
+                <div id="subscribe" class="section subscription-section-modern">
                     <div class="container">
                         <div data-w-id="subscription-section" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:1" class="animation-up-0-1">
                             <div class="subscription-content-wrapper">
@@ -506,7 +506,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 <style>
 
-#projects {
+#projects, #subscribe {
     scroll-margin-top: 100px;
 }
 /* Recent Projects Section */
