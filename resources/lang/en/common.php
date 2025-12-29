@@ -126,6 +126,26 @@ return [
     'create_new_insight' => 'Create a new insight with bilingual content',
     'edit_insight_content' => 'Edit insight with bilingual content',
     
+    // Flipbook specific
+    'flipbook_details' => 'Flipbook Details',
+    'create_flipbook' => 'Create Flipbook',
+    'edit_flipbook' => 'Edit Flipbook',
+    'add_flipbook' => 'Add Flipbook',
+    'create_new_flipbook' => 'Create a new flipbook',
+    'edit_flipbook_content' => 'Edit flipbook content',
+    'heyzine_url' => 'Heyzine URL',
+    'heyzine_url_help' => 'Enter the full Heyzine flipbook URL',
+    'cover_image' => 'Cover Image',
+    'cover_image_url_help' => 'Enter the full Heyzine cover image URL',
+    'no_cover_image' => 'No cover image uploaded',
+    'upload_cover_image' => 'Upload Cover Image',
+    'title_placeholder' => 'Optional title',
+    'subtitle_placeholder' => 'Optional subtitle',
+    'title_optional' => 'Optional - Leave empty if not needed',
+    'subtitle_optional' => 'Optional - Leave empty if not needed',
+    'subtitle_english' => 'Subtitle (English)',
+    'subtitle_arabic' => 'Subtitle (Arabic)',
+    
     // Pages specific
     'edit_page' => 'Edit :page Page',
     'edit_page_content' => 'Edit :page Content',

@@ -417,7 +417,7 @@ div.heyzine-fold.hover .heyzine-fold-caption .heyzine-curl,div.heyzine-fold:hove
 @media (min-width: 768px) {
     .responsive-heyzine-height {
         min-height: 210px;
-        height: 261px;
+        /* height: 261px; */
     }
 }
 

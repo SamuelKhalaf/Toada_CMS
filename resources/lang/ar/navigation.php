@@ -9,6 +9,7 @@ return [
     'insights' => 'الرؤى',
     'insights_impact' => 'الرؤى والتأثير',
     'stories' => 'القصص',
+    'flipbooks' => 'المقالات',
 
     // Breadcrumbs
     'home' => 'الرئيسية',

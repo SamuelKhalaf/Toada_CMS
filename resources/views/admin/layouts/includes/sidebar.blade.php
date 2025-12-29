@@ -110,6 +110,21 @@
                 <!--end:Menu item-->
                 
                 <!--begin:Menu item-->
+                <div class="menu-item {{setMenuOpenClass(['admin.flipbooks.index', 'admin.flipbooks.create', 'admin.flipbooks.edit'])}}">
+                    <!--begin:Menu link-->
+                    <a class="menu-link {{setActiveClass(['admin.flipbooks.index', 'admin.flipbooks.create', 'admin.flipbooks.edit'])}}" href="{{route('admin.flipbooks.index')}}">
+                        <span class="menu-icon">
+                            <span class="svg-icon svg-icon-2">
+                                <i class="fa-solid fa-book"></i>
+                            </span>
+                        </span>
+                        <span class="menu-title">@lang('navigation.flipbooks')</span>
+                    </a>
+                    <!--end:Menu link-->
+                </div>
+                <!--end:Menu item-->
+                
+                <!--begin:Menu item-->
                 <div class="menu-item {{setMenuOpenClass(['admin.projects.index', 'admin.projects.create', 'admin.projects.edit'])}}">
                     <!--begin:Menu link-->
                     <a class="menu-link {{setActiveClass(['admin.projects.index', 'admin.projects.create', 'admin.projects.edit'])}}" href="{{route('admin.projects.index')}}">

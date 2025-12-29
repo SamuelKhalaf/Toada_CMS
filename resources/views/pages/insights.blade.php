@@ -157,10 +157,32 @@
                                     </div>
                                     <div id="w-node-_766d46bb-8db5-d76b-e072-7eee1ce6e0e7-c47d89ea" class="w-dyn-list">
                                         <div role="list" class="collection-list w-dyn-items">
-                                            <div role="listitem" class="w-dyn-item" style="display: flex; justify-content: center; align-items: center;">
+                                            @if($flipbooks->count() > 0)
                                                 <link rel="stylesheet" href="{{ asset('css/heyzine.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-                                                <div class="heyzine-fold fp-w fp-fh responsive-heyzine-height" style="width: 100%;"><img src="{{ asset('images/cover.png') }}" class="img-front fp-thumb"> <div class="heyzine-fold-caption"><div><h2 class="fp-title"></h2></div> <div><p class="fp-subtitle"></p> <div class="heyzine-curl"></div></div> <a href="https://heyzine.com/flip-book/618058ee0b.html" target="_TOP" class="heyzine-link fp-link"></a></div></div>
-                                            </div>
+                                            @endif
+                                            @foreach($flipbooks as $flipbook)
+                                                @php
+                                                    $translation = $flipbook->translation($currentLang);
+                                                    $coverImage = $flipbook->cover_image ? $flipbook->cover_image : asset('images/cover.png');
+                                                    $title = $translation ? $translation->title : '';
+                                                    $subtitle = $translation ? $translation->subtitle : '';
+                                                @endphp
+                                                <div role="listitem" class="w-dyn-item" style="display: flex; justify-content: center; align-items: center;">
+                                                    <div class="heyzine-fold fp-w fp-fh responsive-heyzine-height" style="width: 100%;">
+                                                        <img src="{{ $coverImage }}" class="img-front fp-thumb" alt="{{ $title }}">
+                                                        <div class="heyzine-fold-caption">
+                                                            <div>
+                                                                <h2 class="fp-title">{{ $title }}</h2>
+                                                            </div>
+                                                            <div>
+                                                                <p class="fp-subtitle">{{ $subtitle }}</p>
+                                                                <div class="heyzine-curl"></div>
+                                                            </div>
+                                                            <a href="{{ $flipbook->heyzine_url }}" target="_TOP" class="heyzine-link fp-link"></a>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            @endforeach
                                             @foreach($insights as $insight)
                                                 @php
                                                     $translation = $insight->translation($currentLang);

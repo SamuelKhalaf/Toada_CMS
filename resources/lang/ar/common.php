@@ -126,6 +126,26 @@ return [
     'create_new_insight' => 'إنشاء رؤية جديدة بمحتوى ثنائي اللغة',
     'edit_insight_content' => 'تعديل رؤية بمحتوى ثنائي اللغة',
     
+    // Flipbook specific
+    'flipbook_details' => 'تفاصيل المقال ',
+    'create_flipbook' => 'إنشاء مقال جديد',
+    'edit_flipbook' => 'تعديل مقال',
+    'add_flipbook' => 'إضافة مقال',
+    'create_new_flipbook' => 'إنشاء مقال جديد',
+    'edit_flipbook_content' => 'تعديل محتوى المقال',
+    'heyzine_url' => 'رابط Heyzine',
+    'heyzine_url_help' => 'أدخل رابط المقال الكامل من Heyzine',
+    'cover_image' => 'صورة الغلاف',
+    'cover_image_url_help' => 'أدخل رابط صورة الغلاف الكامل من Heyzine',
+    'no_cover_image' => 'لم يتم رفع صورة غلاف',
+    'upload_cover_image' => 'رفع صورة الغلاف',
+    'title_placeholder' => 'عنوان اختياري',
+    'subtitle_placeholder' => 'عنوان فرعي اختياري',
+    'title_optional' => 'اختياري - اتركه فارغاً إذا لم يكن مطلوباً',
+    'subtitle_optional' => 'اختياري - اتركه فارغاً إذا لم يكن مطلوباً',
+    'subtitle_english' => 'العنوان الفرعي (بالإنجليزية)',
+    'subtitle_arabic' => 'العنوان الفرعي (بالعربية)',
+    
     // Pages specific
     'edit_page' => 'تعديل صفحة :page',
     'edit_page_content' => 'تعديل محتوى :page',

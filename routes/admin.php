@@ -6,6 +6,7 @@ use App\Http\Controllers\admin\SocialMediaController;
 use App\Http\Controllers\admin\InsightController;
 use App\Http\Controllers\admin\StoryController;
 use App\Http\Controllers\admin\ProjectController;
+use App\Http\Controllers\admin\FlipbookController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -79,6 +80,16 @@ Route::middleware(['auth'])->name('admin.')->prefix('admin')->group(function () 
     Route::put('/projects/{project}', [ProjectController::class, 'update'])->name('projects.update');
     Route::delete('/projects/{project}', [ProjectController::class, 'destroy'])->name('projects.destroy');
     Route::post('/projects/upload-image', [ProjectController::class, 'uploadImage'])->name('projects.upload-image');
+
+    // Flipbooks Routes
+    Route::get('/flipbooks', [FlipbookController::class, 'index'])->name('flipbooks.index');
+    Route::get('/flipbooks/all', [FlipbookController::class, 'getFlipbooksDatatable'])->name('flipbooks.datatable');
+    Route::get('/flipbooks/create', [FlipbookController::class, 'create'])->name('flipbooks.create');
+    Route::post('/flipbooks', [FlipbookController::class, 'store'])->name('flipbooks.store');
+    Route::get('/flipbooks/{flipbook}/edit', [FlipbookController::class, 'edit'])->name('flipbooks.edit');
+    Route::put('/flipbooks/{flipbook}', [FlipbookController::class, 'update'])->name('flipbooks.update');
+    Route::delete('/flipbooks/{flipbook}', [FlipbookController::class, 'destroy'])->name('flipbooks.destroy');
+    Route::post('/flipbooks/upload-image', [FlipbookController::class, 'uploadImage'])->name('flipbooks.upload-image');
 
 });
 
