@@ -66,14 +66,24 @@
                                 <!-- Basic Info Tab -->
                                 <div class="tab-pane fade show active" id="kt_tab_basic" role="tabpanel">
                                     <div class="row">
-                                        <div class="col-12 mb-5">
-                                            <label class="required fw-semibold fs-6 mb-2">@lang('common.heyzine_url')</label>
-                                            <input type="url" name="heyzine_url" class="form-control form-control-solid" value="{{ $flipbook->heyzine_url }}" placeholder="https://heyzine.com/flip-book/..." required/>
+                                        <div class="col-md-6 mb-5">
+                                            <label class="required fw-semibold fs-6 mb-2">@lang('common.heyzine_url_english')</label>
+                                            <input type="url" name="heyzine_url_en" class="form-control form-control-solid" value="{{ $flipbook->heyzine_url_en }}" placeholder="https://heyzine.com/flip-book/..." required/>
                                             <div class="form-text">@lang('common.heyzine_url_help')</div>
                                         </div>
-                                        <div class="col-12 mb-5">
-                                            <label class="fw-semibold fs-6 mb-2">@lang('common.cover_image')</label>
-                                            <input type="url" name="cover_image" class="form-control form-control-solid" value="{{ $flipbook->cover_image }}" placeholder="https://example.com/image.jpg"/>
+                                        <div class="col-md-6 mb-5">
+                                            <label class="fw-semibold fs-6 mb-2">@lang('common.heyzine_url_arabic')</label>
+                                            <input type="url" name="heyzine_url_ar" class="form-control form-control-solid" value="{{ $flipbook->heyzine_url_ar }}" placeholder="https://heyzine.com/flip-book/..."/>
+                                            <div class="form-text">@lang('common.heyzine_url_help')</div>
+                                        </div>
+                                        <div class="col-md-6 mb-5">
+                                            <label class="fw-semibold fs-6 mb-2">@lang('common.cover_image_english')</label>
+                                            <input type="url" name="cover_image_en" class="form-control form-control-solid" value="{{ $flipbook->cover_image_en }}" placeholder="https://example.com/image.jpg"/>
+                                            <div class="form-text">@lang('common.cover_image_url_help')</div>
+                                        </div>
+                                        <div class="col-md-6 mb-5">
+                                            <label class="fw-semibold fs-6 mb-2">@lang('common.cover_image_arabic')</label>
+                                            <input type="url" name="cover_image_ar" class="form-control form-control-solid" value="{{ $flipbook->cover_image_ar }}" placeholder="https://example.com/image.jpg"/>
                                             <div class="form-text">@lang('common.cover_image_url_help')</div>
                                         </div>
                                         <div class="col-md-6 mb-5">

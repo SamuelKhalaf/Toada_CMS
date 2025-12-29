@@ -10,8 +10,10 @@ class Flipbook extends Model
     use HasFactory;
 
     protected $fillable = [
-        'heyzine_url',
-        'cover_image',
+        'heyzine_url_en',
+        'heyzine_url_ar',
+        'cover_image_en',
+        'cover_image_ar',
         'published_at',
         'status',
     ];
@@ -47,5 +49,29 @@ class Flipbook extends Model
             ->where('published_at', '<=', now())
             ->orderBy('id', 'desc')
             ->get();
+    }
+
+    /**
+     * Get Heyzine URL for a specific language
+     */
+    public function getHeyzineUrl($language = null)
+    {
+        $language = $language ?? app()->getLocale();
+        if ($language === 'ar') {
+            return $this->heyzine_url_ar ?: $this->heyzine_url_en;
+        }
+        return $this->heyzine_url_en ?: $this->heyzine_url_ar;
+    }
+
+    /**
+     * Get cover image URL for a specific language
+     */
+    public function getCoverImageUrl($language = null)
+    {
+        $language = $language ?? app()->getLocale();
+        if ($language === 'ar') {
+            return $this->cover_image_ar ?: $this->cover_image_en;
+        }
+        return $this->cover_image_en ?: $this->cover_image_ar;
     }
 }

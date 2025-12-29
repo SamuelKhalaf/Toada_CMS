@@ -29,7 +29,11 @@ class FlipbookController extends Controller
                 return $translation ? $translation->title : '-';
             })
             ->addColumn('heyzine_url', function ($flipbook) {
-                return '<a href="' . $flipbook->heyzine_url . '" target="_blank" class="text-primary">' . substr($flipbook->heyzine_url, 0, 50) . '...</a>';
+                $url = $flipbook->heyzine_url_en ?: $flipbook->heyzine_url_ar;
+                if ($url) {
+                    return '<a href="' . $url . '" target="_blank" class="text-primary">' . substr($url, 0, 50) . '...</a>';
+                }
+                return '-';
             })
             ->addColumn('status', function ($flipbook) {
                 if ($flipbook->status === 'published') {
@@ -78,8 +82,10 @@ class FlipbookController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'heyzine_url' => 'required|url|max:500',
-            'cover_image' => 'nullable|url|max:500',
+            'heyzine_url_en' => 'required|url|max:500',
+            'heyzine_url_ar' => 'nullable|url|max:500',
+            'cover_image_en' => 'nullable|url|max:500',
+            'cover_image_ar' => 'nullable|url|max:500',
             'published_at' => 'nullable|date',
             'status' => 'required|in:draft,published',
             'translations.ar.title' => 'nullable|string|max:255',
@@ -92,8 +98,10 @@ class FlipbookController extends Controller
             DB::beginTransaction();
 
             $flipbook = Flipbook::create([
-                'heyzine_url' => $request->heyzine_url,
-                'cover_image' => $request->cover_image,
+                'heyzine_url_en' => $request->heyzine_url_en,
+                'heyzine_url_ar' => $request->heyzine_url_ar,
+                'cover_image_en' => $request->cover_image_en,
+                'cover_image_ar' => $request->cover_image_ar,
                 'published_at' => $request->published_at,
                 'status' => $request->status,
             ]);
@@ -138,8 +146,10 @@ class FlipbookController extends Controller
     public function update(Request $request, Flipbook $flipbook)
     {
         $request->validate([
-            'heyzine_url' => 'required|url|max:500',
-            'cover_image' => 'nullable|url|max:500',
+            'heyzine_url_en' => 'required|url|max:500',
+            'heyzine_url_ar' => 'nullable|url|max:500',
+            'cover_image_en' => 'nullable|url|max:500',
+            'cover_image_ar' => 'nullable|url|max:500',
             'published_at' => 'nullable|date',
             'status' => 'required|in:draft,published',
             'translations.ar.title' => 'nullable|string|max:255',
@@ -152,8 +162,10 @@ class FlipbookController extends Controller
             DB::beginTransaction();
 
             $flipbook->update([
-                'heyzine_url' => $request->heyzine_url,
-                'cover_image' => $request->cover_image,
+                'heyzine_url_en' => $request->heyzine_url_en,
+                'heyzine_url_ar' => $request->heyzine_url_ar,
+                'cover_image_en' => $request->cover_image_en,
+                'cover_image_ar' => $request->cover_image_ar,
                 'published_at' => $request->published_at,
                 'status' => $request->status,
             ]);

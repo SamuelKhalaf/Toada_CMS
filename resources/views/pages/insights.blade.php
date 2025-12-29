@@ -163,10 +163,12 @@
                                             @foreach($flipbooks as $flipbook)
                                                 @php
                                                     $translation = $flipbook->translation($currentLang);
-                                                    $coverImage = $flipbook->cover_image ? $flipbook->cover_image : asset('images/cover.png');
+                                                    $coverImage = $flipbook->getCoverImageUrl($currentLang);
+                                                    $heyzineUrl = $flipbook->getHeyzineUrl($currentLang);
                                                     $title = $translation ? $translation->title : '';
                                                     $subtitle = $translation ? $translation->subtitle : '';
                                                 @endphp
+                                                @if($heyzineUrl && $coverImage)
                                                 <div role="listitem" class="w-dyn-item" style="display: flex; justify-content: center; align-items: center;">
                                                     <div class="heyzine-fold fp-w fp-fh responsive-heyzine-height" style="width: 100%;">
                                                         <img src="{{ $coverImage }}" class="img-front fp-thumb" alt="{{ $title }}">
@@ -178,10 +180,11 @@
                                                                 <p class="fp-subtitle">{{ $subtitle }}</p>
                                                                 <div class="heyzine-curl"></div>
                                                             </div>
-                                                            <a href="{{ $flipbook->heyzine_url }}" target="_TOP" class="heyzine-link fp-link"></a>
+                                                            <a href="{{ $heyzineUrl }}" target="_blank" class="heyzine-link fp-link"></a>
                                                         </div>
                                                     </div>
                                                 </div>
+                                                @endif
                                             @endforeach
                                             @foreach($insights as $insight)
                                                 @php
